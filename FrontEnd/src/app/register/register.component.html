@@ -1,0 +1,550 @@
+<div class="register pt-4 pb-5">
+  <div class="container">
+    <div class="formContainer m-auto col-11 col-md-8 col-lg-5 p-4 rounded-1">
+      <h5 class="text-center">Register</h5>
+      <!-- User Register -->
+      <div class="userRegister" *ngIf="!clickSubmit">
+        <form
+          action="#"
+          [formGroup]="RegisterUserForm"
+          (ngSubmit)="getUserData(RegisterUserForm)"
+          method="POST"
+        >
+          <div class="mb-1">
+            <label for="name" class="form-label">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              formControlName="name"
+              name="name"
+              aria-describedby="nameHelp"
+              [ngStyle]="{
+                'border-color':
+                  RegisterUserForm.controls['name'].touched &&
+                  RegisterUserForm.controls['name'].invalid
+                    ? 'red'
+                    : 'grey'
+              }"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                RegisterUserForm.controls['name'].touched &&
+                RegisterUserForm.controls['name'].invalid
+              "
+            >
+              <small
+                *ngIf="RegisterUserForm.controls['name']?.errors?.['required']"
+                >Name is a required field!</small
+              >
+              <small
+                *ngIf="RegisterUserForm.controls['name']?.errors?.['minlength']"
+                >Length Should Be More Than 3 Char!!!
+              </small>
+              <small
+                *ngIf="RegisterUserForm.controls['name']?.errors?.['maxlength']"
+                >Length Should Be Less Than 10 Char!!!
+              </small>
+            </div>
+
+            <!-- <div id="nameId" class="form-text text-danger" *ngIf="RegisterUserForm?.get('name')?.errors?.maxLength">
+              the name should less than 8
+            </div>
+            <div id="nameId" class="form-text text-danger" *ngIf="RegisterUserForm?.get('name')?.errors?.minLength">
+              the name should greeter than 3
+            </div> -->
+          </div>
+          <div class="mb-1">
+            <label for="exampleInputEmail1" class="form-label"
+              >Email address</label
+            >
+          
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              formControlName="email"
+              aria-describedby="emailHelp"
+              [ngStyle]="{
+                'border-color':
+                  RegisterUserForm.controls['email'].touched &&
+                  RegisterUserForm.controls['email'].invalid
+                    ? 'red'
+                    : 'grey'
+              }"
+            />
+
+            <div
+              class="text-danger"
+              *ngIf="
+                RegisterUserForm.controls['email'].touched &&
+                RegisterUserForm.controls['email'].invalid
+              "
+            >
+              <small
+                *ngIf="RegisterUserForm.controls['email']?.errors?.['required']"
+                >E-Mail is a required field!</small
+              >
+              <small
+                *ngIf="RegisterUserForm.controls['email']?.errors?.['email']"
+                >E-Mail Don't Match !!!
+              </small>
+            </div>
+            <div *ngIf="errorData.email" class="text-danger col-md-6 col-form-label">
+              <div>Email Already Taken</div>
+            </div>
+            <!-- <div class="mb-1">
+              <label for="age" class="form-label">Age</label>
+              <input
+                type="number"
+                class="form-control"
+                id="age"
+                formControlName="age"
+                name="age"
+                aria-describedby="ageHelp"
+                [ngStyle]="{
+                  'border-color':
+                    RegisterUserForm.controls['age'].touched &&
+                    RegisterUserForm.controls['age'].invalid
+                      ? 'red'
+                      : 'grey'
+                }"
+              />
+              <div
+                class="text-danger"
+                *ngIf="
+                  RegisterUserForm.controls['age'].touched &&
+                  RegisterUserForm.controls['age'].invalid
+                "
+              >
+                <small
+                  *ngIf="RegisterUserForm.controls['age']?.errors?.['required']"
+                  >E-Mail is a required field!</small
+                >
+                <small *ngIf="RegisterUserForm.controls['age']?.errors?.['min']"
+                  >Age Should Greater Than 17 !!!
+                </small>
+                <small *ngIf="RegisterUserForm.controls['age']?.errors?.['max']"
+                  >Age Should Less Than 100 !!!
+                </small>
+              </div>
+            </div> -->
+          </div>
+          <div class="mb-1">
+            <label for="name" class="form-label">Image</label>
+            <input
+              type="file"
+              class="form-control"
+              id="imageId"
+              formControlName="image"
+              (change)="onFileUserChange($event)"
+              name="image"
+              aria-describedby="imageHelp"
+              [ngStyle]="{
+                'border-color':
+                  RegisterUserForm.controls['image'].touched &&
+                  RegisterUserForm.controls['image'].invalid
+                    ? 'red'
+                    : 'grey'
+              }"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                RegisterUserForm.controls['image'].touched &&
+                RegisterUserForm.controls['image'].invalid
+              "
+            >
+              <small
+                *ngIf="RegisterUserForm.controls['image']?.errors?.['required']"
+                >price is a required field!</small
+              >
+            </div>
+          </div>
+          <div class="select select1">
+            <label for="name" class="form-label">City</label>
+            <select
+              id="doc"
+              name="doctor"
+              class="form-select"
+              formControlName="city_id"
+              (change)="getCity($event)"
+            >
+              <option value="" >Select City</option>
+              <ng-container >
+                <option [value]="cit.id" id="cit.id" *ngFor="let cit of cities">{{ cit.name }}</option>
+              </ng-container>
+              <!-- <option value="cairo">Cairo</option>
+              <option value="Giza">giza</option>
+              <option value="sharqea">sharqea</option>
+              <option value="tanta">tanta</option>
+              <option value="alex">alex</option>
+              <option value="atfih">atfih</option>
+              <option value="catalonia">catalonia</option> -->
+            </select>
+          </div>
+      
+          <div class="mb-1">
+            <label for="mobile" class="form-label">phone</label>
+            <input
+              type="tel"
+              class="form-control"
+              id="phone"
+              formControlName="phone"
+              name="phone"
+              [(ngModel)]="commonMobile"
+              aria-describedby="phoneHelp"
+              [ngStyle]="{
+                'border-color':
+                  RegisterUserForm.controls['phone'].touched &&
+                  RegisterUserForm.controls['phone'].invalid
+                    ? 'red'
+                    : 'grey'
+              }"
+            />
+            <!-- [(ngModel)]="commonphone" -->
+
+            <div
+              class="text-danger"
+              *ngIf="
+                RegisterUserForm.controls['phone'].touched &&
+                RegisterUserForm.controls['phone'].invalid
+              "
+            >
+              <small
+                *ngIf="RegisterUserForm.controls['phone']?.errors?.['required']"
+                >phone is a required field!</small
+              >
+              <!-- <small *ngIf="RegisterUserForm.controls['phone']?.errors?.['maxlength']"
+                  >phone Should Greater Than 17 !!!
+                </small> -->
+              <small
+                *ngIf="RegisterUserForm.controls['phone']?.errors?.['pattern']"
+                >phonee Not Correct !!!
+              </small>
+            </div>
+            <div *ngIf="errorData.phone" class="text-danger col-md-6 col-form-label">
+              <div>Phone Already Taken</div>
+            </div>
+          </div>
+          <div class="mb-1">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              formControlName="password"
+              [ngStyle]="{
+                'border-color':
+                  RegisterUserForm.controls['password'].touched &&
+                  RegisterUserForm.controls['password'].invalid
+                    ? 'red'
+                    : 'grey'
+              }"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                RegisterUserForm.controls['password'].touched &&
+                RegisterUserForm.controls['password'].invalid
+              "
+            >
+              <small
+                *ngIf="RegisterUserForm.controls['password']?.errors?.['required']"
+                >Password is a required field!</small
+              >
+              <!-- <small *ngIf="RegisterUserForm.controls['password']?.errors?.['maxlength']"
+              >password Should Greater Than 17 !!!
+            </small> -->
+              <small
+                *ngIf="RegisterUserForm.controls['password']?.errors?.['pattern']"
+                >passworde Not Correct !!!
+              </small>
+            </div>
+          </div>
+          <!-- <div class="mb-1">
+            <label for="confirmPass" class="form-label">Confirm Password</label>
+            <input
+              type="password"
+              class="form-control"
+              name="ConfirmPassword"
+              id="confirmPass"
+              formControlName="confirmePassword"
+              [ngStyle]="{
+                'border-color':
+                  RegisterUserForm.controls['confirmePassword'].touched &&
+                  RegisterUserForm.controls['confirmePassword'].invalid
+                    ? 'red'
+                    : 'grey'
+              }"
+            />
+            <div
+              class="text-danger"
+              *ngIf="RegisterUserForm.controls['confirmePassword'].touched"
+            >
+              <small *ngIf="RegisterUserForm.errors?.['passwordmatcherror']"
+                >ConfirmPassword And Password Don't Match!</small
+              >
+            </div>
+          </div> -->
+          <div class="mb-1 form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="exampleCheck1"
+              (change)="showLawerRegis()"
+            />
+            <label
+              class="form-check-label"
+              for="exampleCheck1"
+              (click)="showLawerRegis()"
+              >Register As Lawer</label
+            >
+          </div>
+
+          <button
+            type="submit"
+            class="btnSubmit"
+            [ngClass]="{ active: RegisterUserForm.valid }"
+            [disabled]="RegisterUserForm.invalid"
+          >
+            <!-- [ngClass]="{ active: RegisterUserForm.valid }"
+          [disabled]="RegisterUserForm.invalid" -->
+            Submit
+          </button>
+        </form>
+      </div>
+      <!-- Lawer Register Form -->
+
+      <div class="lawerRegister" *ngIf="clickSubmit">
+        <form
+          [formGroup]="RegisterLawerForm"
+          (ngSubmit)="getLawerData(RegisterLawerForm)"
+        >
+          <div class="mb-1">
+            <label for="name" class="form-label">ID-Photo</label>
+            <input
+              type="file"
+              class="form-control"
+              id="imageId"
+              formControlName="idImage"
+              (change)="onFileLawerChange($event)"
+              name="idImage"
+              aria-describedby="imageHelp"
+              [ngStyle]="{
+                'border-color':
+                  RegisterLawerForm.controls['idImage'].touched &&
+                  RegisterLawerForm.controls['idImage'].invalid
+                    ? 'red'
+                    : 'grey'
+              }"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                RegisterLawerForm.controls['idImage'].touched &&
+                RegisterLawerForm.controls['idImage'].invalid
+              "
+            >
+              <small
+                *ngIf="RegisterLawerForm.controls['idImage']?.errors?.['required']"
+                >price is a required field!</small
+              >
+            </div>
+          </div>
+          <div class="mb-1">
+            <label for="lawerPrice" class="form-label">Price</label>
+            <input
+              type="number"
+              class="form-control"
+              id="lawerPrice"
+              formControlName="price"
+              name="price"
+              aria-describedby="lawerPriceHelp"
+              [ngStyle]="{
+                'border-color':
+                  RegisterLawerForm.controls['price'].touched &&
+                  RegisterLawerForm.controls['price'].invalid
+                    ? 'red'
+                    : 'grey'
+              }"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                RegisterLawerForm.controls['price'].touched &&
+                RegisterLawerForm.controls['price'].invalid
+              "
+            >
+              <small
+                *ngIf="RegisterLawerForm.controls['price']?.errors?.['required']"
+                >price is a required field!</small
+              >
+              <small
+                *ngIf="RegisterLawerForm.controls['price']?.errors?.['min']"
+                >price Should Greater Than 100 !!!
+              </small>
+              <small
+                *ngIf="RegisterLawerForm.controls['price']?.errors?.['max']"
+                >price Should Less Than 400 !!!
+              </small>
+            </div>
+          </div>
+          <div class="select select1">
+            <label for="name" class="form-label">specialize</label>
+            <select
+              id="doc"
+              name="doctor"
+              class="form-select"
+              formControlName="specialization_id"
+              (change)="getSpecialize($event)"
+            >
+              <option value="" selected>Special</option>
+              <ng-container *ngFor="let special of Specializes">
+                <option [value]="special.id" id="special.id">{{ special.name }}</option>
+              </ng-container>
+              <!-- <option value="cairo">Cairo</option>
+              <option value="Giza">giza</option>
+              <option value="sharqea">sharqea</option>
+              <option value="tanta">tanta</option>
+              <option value="alex">alex</option>
+              <option value="atfih">atfih</option>
+              <option value="catalonia">catalonia</option> -->
+            </select>
+          </div>
+          <div class="mb-1">
+            <label for="lawerPrice" class="form-label">Location</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lawerlocation"
+              formControlName="location"
+              name="location"
+              aria-describedby="lawerlocationHelp"
+              [ngStyle]="{
+                'border-color':
+                  RegisterLawerForm.controls['location'].touched &&
+                  RegisterLawerForm.controls['location'].invalid
+                    ? 'red'
+                    : 'grey'
+              }"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                RegisterLawerForm.controls['location'].touched &&
+                RegisterLawerForm.controls['location'].invalid
+              "
+            >
+              <small
+                *ngIf="RegisterLawerForm.controls['location']?.errors?.['required']"
+                >location is a required field!</small
+              >
+              <small
+                *ngIf="RegisterLawerForm.controls['location']?.errors?.['minlength']"
+                >location Should Greater Than 100 !!!
+              </small>
+              <small
+                *ngIf="RegisterLawerForm.controls['location']?.errors?.['maxlength']"
+                >location Should Less Than 400 !!!
+              </small>
+            </div>
+          </div>
+          <div class="mb-1">
+            <label for="lawerPrice" class="form-label">About</label>
+            <textarea
+              type=""
+              class="form-control"
+              id="lawerabout"
+              formControlName="about"
+              name="about"
+              aria-describedby="laweraboutHelp"
+              [ngStyle]="{
+                'border-color':
+                  RegisterLawerForm.controls['about'].touched &&
+                  RegisterLawerForm.controls['about'].invalid
+                    ? 'red'
+                    : 'grey'
+              }"
+            ></textarea>
+            <div
+              class="text-danger"
+              *ngIf="
+                RegisterLawerForm.controls['about'].touched &&
+                RegisterLawerForm.controls['about'].invalid
+              "
+            >
+              <small
+                *ngIf="RegisterLawerForm.controls['about']?.errors?.['required']"
+                >about is a required field!</small
+              >
+              <small
+                *ngIf="RegisterLawerForm.controls['about']?.errors?.['minlength']"
+                >about Should Greater Than 100 !!!
+              </small>
+              <small
+                *ngIf="RegisterLawerForm.controls['about']?.errors?.['maxlength']"
+                >about Should Less Than 400 !!!
+              </small>
+            </div>
+          </div>
+          <div class="mb-1">
+            <label for="lawerPrice" class="form-label">Session Time</label>
+            <input
+              type="number"
+              class="form-control"
+              id="lawerspan"
+              formControlName="span"
+              name="span"
+              placeholder="ex : 1 or 2 or 3"
+              aria-describedby="lawerspanHelp"
+              [ngStyle]="{
+                'border-color':
+                  RegisterLawerForm.controls['span'].touched &&
+                  RegisterLawerForm.controls['span'].invalid
+                    ? 'red'
+                    : 'grey'
+              }"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                RegisterLawerForm.controls['span'].touched &&
+                RegisterLawerForm.controls['span'].invalid
+              "
+            >
+              <small
+                *ngIf="RegisterLawerForm.controls['span']?.errors?.['required']"
+                >span is a required field!</small
+              >
+              <small *ngIf="RegisterLawerForm.controls['span']?.errors?.['minlength']"
+                >minlength Should 4 !!!
+              </small>
+              <small *ngIf="RegisterLawerForm.controls['span']?.errors?.['maxlength']"
+                >maxlength Should 7 !!!
+              </small>
+            </div>
+          </div>
+
+          <!-- <button type="submit" class="btnSubmit">Submit</button> -->
+          <button
+            type="submit"
+            class="btnSubmit"
+            [ngClass]="{ active: RegisterLawerForm.valid }"
+            [disabled]="RegisterLawerForm.invalid"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+
+      <div class="mt-4 haveAcount">
+        <p class="text-center mt-4">
+          Have Already Acount?
+          <a class="" routerLink="/login">Login</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

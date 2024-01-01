@@ -1,0 +1,112 @@
+
+<div class="container">
+  <div class="row">
+    <h1 class="mt-5 text-center">Groups works!</h1>
+    <div class="mt-4">
+      <div class="" *ngFor="let user of usersList">
+        <div *ngFor="let group of user.groups">
+          <div class="d-flex align-items-center">
+            <h1 class="me-3">{{ group.name }}</h1>
+            <div class="bt d-flex">
+              <button class="btn btn-info me-3" (click)="viewPost(group.id)">
+                View
+              </button>
+              <button class="btn btn-info me-3" (click)="joinGroup(group.id)">
+                <span *ngIf="!isJoin">Join</span>
+                <span  *ngIf="isJoin">Visit</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- <div class="d-flex align-items-center" *ngFor="let group of user.groups"> -->
+          <div *ngFor="let post of group.posts">
+            <h5 *ngIf="show && idGroup == group.id">{{ post.post }}</h5>
+            <h5 *ngIf="show && idGroup == group.id">{{ user.name }}</h5>
+            <h5 *ngIf="show && idGroup == group.id">
+              {{ user.image }}
+              <img src="{{ user?.image }}" alt="" />
+            </h5>
+          </div>
+          <!-- </div> -->
+        </div>
+      </div>
+
+      <!-- <div class="" *ngFor="let user of usersList">
+        <div
+          class="d-flex align-items-center"
+          *ngFor="let group of user.groups"
+        >
+          <div *ngFor="let post of group.posts">
+            <h1>{{ post.post }}</h1>
+          </div>
+        </div>
+      </div> -->
+      <!-- <div class="posts">
+        <div class="d-flex align-items-center" *ngFor="let post of usersList.groups.posts">
+          <h5 class="me-3">{{ post.post }}</h5>
+          <p class="me-3">{{ post.created_at }}</p>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+****************************************************************************
+
+<div class="practiceDetails">
+  <div class="container">
+    <div class="headerMain">
+      <h2 class="practiceDetailsHeade text-center">Groups</h2>
+      <p class="text-center">Choose Your Groups</p>
+    </div>
+    <div class="contentTabs">
+      <div class="contentwrap d-flex align-items-start">
+        <div
+          class="nav flex-column nav-pills"
+          id="v-pills-tab"
+          role="tablist"
+          aria-orientation="vertical"
+        >
+          <ng-container *ngFor="let user of usersList; index as i">
+            <button
+              *ngFor="let group of user.groups; index as index"
+              class="nav-link active"
+              [id]="'v-pills-' + index + '-tab'"
+              data-bs-toggle="pill"
+              [data-bs-target]="'#v-pills-' + index"
+              type="button"
+              role="tab"
+              [aria-controls]="'v-pills-home' + index"
+              aria-selected="false"
+            >
+              <i class="fa-solid fa-people-group me-2"></i>
+              <span>{{ group.name }}</span>
+            </button>
+          </ng-container>
+        </div>
+        <div class="tab-content" id="v-pills-tabContent">
+          <ng-container *ngFor="let user of usersList; index as i">
+            <div
+              *ngFor="let group of user.groups; index as index"
+              class="tab-pane fade show active"
+              [id]="'v-pills-' + index"
+              role="tabpanel"
+              [aria-labelledby]="'v-pills-' + index + '-tab'"
+              [tabindex]="index"
+            >
+              <h4>{{ group.name }} {{ index }}</h4>
+              <div *ngFor="let post of group.posts">
+                <h5>{{ post.post }} ---</h5>
+                <h5>{{ user.name }}</h5>
+                <h5>
+                  {{ user.image }}
+                  <img src="{{ user?.image }}" alt="" />
+                </h5>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

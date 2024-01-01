@@ -1,0 +1,91 @@
+<div class="reservation">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="lawerInfo">
+          <div class="flexInfo">
+            <div class="image">
+              <img [src]="image1" alt="" />
+            </div>
+            <div class="infoText">
+              <h5 class="name">
+                <span class="doctor">Lawer</span> Eman Tantawy
+              </h5>
+              <p>Consultant in obstetrics, gynecology</p>
+            </div>
+          </div>
+          <p class="details">
+            Today October 25 - From 7:00 PM To 9:00 PM , Reservation required,
+            first-come, first-served
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6 mt-3 mt-lg-0">
+        <div class="formReserv">
+          <h5 class="text-center py-3 bg-secondary text-white">Enter Your Info.</h5>
+          <form action="">
+            <div class="input-group mb-5">
+              <span class="input-group-text" id="basic-addon1"
+                ><i class="fa-solid fa-user"></i
+              ></span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="User name"
+                aria-label="Username"
+                name="name"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+            <div class="input-group mb-5">
+              <span class="input-group-text" id="basic-addon1"
+                ><i class="fa-solid fa-phone"></i
+              ></span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="User mobile"
+                aria-label="Username"
+                name="mobile"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+            <div class="input-group mb-5">
+              <span class="input-group-text" id="basic-addon1"
+                ><i class="fa-regular fa-envelope"></i
+              ></span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="User gmail"
+                aria-label="Username"
+                name="mail"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+            <div class="mb-5">
+              <div class="lableInfo d-flex justify-content-between align-items-center" >
+                <p>
+                  Vezeeta Points Earned
+                  <i class="exlamition fa-solid fa-exclamation ms-2"></i>
+                </p>
+                <p class="point"><i class="fa-solid fa-medal me-2"></i> 300 points</p>
+              </div>
+            </div>
+            <div class="but">
+              <div class="book">
+                <input type="submit" value="Book" class="bookbtn btn  me-3" />
+
+                <a routerLink="/alllawer" routerLinkActive="router-link-active">
+                  <button class="btn btn-outline-secondary me-3">
+                    Cancel
+                  </button></a
+                >
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

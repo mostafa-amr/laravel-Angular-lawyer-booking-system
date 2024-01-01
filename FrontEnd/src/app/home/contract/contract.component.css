@@ -1,0 +1,21 @@
+.contract {
+    padding: 75px 30px;
+    /* border-top: 2px solid #abb8c3; */
+    border-bottom: 2px solid #abb8c3;
+    background-color: #f5f5f5;
+    /* background-image: url('../../../assets/contract/image1.jpg'); */
+    /* background-position: center; */
+    /* background-size: 100% 100%; */
+    background-size: cover;
+
+    /* background-color: aquamarine; */
+  }
+
+  .cotractText h1{
+  margin-bottom: 35px;
+  color: #cc8800;
+  }
+  .cotractText p{
+    font-weight: bold;
+    font-size: 1.1rem;
+  }

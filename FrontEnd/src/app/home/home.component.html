@@ -1,0 +1,12 @@
+<!-- <h1 class="text-center">home works!</h1> -->
+<!-- <app-landing *ngIf="userInfo?.role == 'lawyer'" > </app-landing> -->
+<app-landing   *ngIf="userInfo?.role =='lawyer' ||  !isLogin  || userInfo?.role =='admin'" > </app-landing>
+<app-landing-search *ngIf="userInfo?.role =='user'  "></app-landing-search>
+<!-- <app-our-practice-area></app-our-practice-area> -->
+<!-- <app-howit-works></app-howit-works> -->
+<!-- <app-case-like-yours></app-case-like-yours> -->
+<app-contract></app-contract>
+<app-practice-details></app-practice-details>
+<!-- <app-our-client></app-our-client> -->
+<!-- <app-our-expert-team></app-our-expert-team> -->
+<app-footer></app-footer>

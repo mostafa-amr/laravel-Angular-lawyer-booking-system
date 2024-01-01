@@ -1,0 +1,68 @@
+<div class="ourClient">
+  <div class="container">
+    <h2 class="ourClientHeader text-center">Our Client</h2>
+    <div class="row col-11 col-md-9 col-lg-8 m-auto">
+      <swiper-container space-between="20">
+        <ng-container *ngFor="let ob of objx; index as i">
+        <swiper-slide *ngIf="i < 2">
+          <div class="client">
+            <p>created_at==> {{ ob.created_at }}</p>
+            <p>phone==> {{ ob.phone }}</p>
+            <p>email==> {{ ob.email }}</p>
+            <h5 class="text-center">
+              {{ ob.name }} <span class="subTitle"> ID:{{ ob.id }} </span>
+            </h5>
+            <div class="clientImage">
+              <img [src]="ob.image" alt="" />
+            </div>
+          </div>
+        </swiper-slide></ng-container>
+        <!-- <swiper-slide>
+          <div class="client">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
+              doloremque ab iste nulla minus adipisci mollitia praesentium magni
+              porro quo.
+            </p>
+            <h5 class="text-center">
+              oooo <span class="subTitle">old Client</span>
+            </h5>
+            <div class="clientImage">
+                <img [src]="image2" alt="">
+            </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="client">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
+              doloremque ab iste nulla minus adipisci mollitia praesentium magni
+              porro quo.
+            </p>
+            <h5 class="text-center">
+              oooo <span class="subTitle">old Client</span>
+            </h5>
+            <div class="clientImage">
+                <img [src]="image3" alt="">
+            </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="client">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
+              doloremque ab iste nulla minus adipisci mollitia praesentium magni
+              porro quo.
+            </p>
+            <h5 class="text-center">
+              oooo <span class="subTitle">old Client</span>
+            </h5>
+            <div class="clientImage">
+                <img [src]="image" alt="">
+            </div>
+          </div>
+        </swiper-slide> -->
+      </swiper-container>
+    </div>
+  </div>
+</div>

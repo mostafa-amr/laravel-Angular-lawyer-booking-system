@@ -1,0 +1,136 @@
+
+.allLawer{
+    padding: 30px 0;
+  }
+  
+  .singleLawer {
+    /* display: flex; */
+    /* align-items: flex-start; */
+    padding: 35px 20px;
+    border-radius: 10px;
+    background-color: #ffb62442;
+    transition: 0.2s;
+  }
+  
+  .singleImagDetail {
+    display: flex;
+    align-items: flex-start;
+  
+  }
+  .headTitl {
+    color: #ffb624;
+  }
+  .singleLawer:hover {
+    background-color: #f7b02170;
+  }
+  .singleLawer:not(:last-child) {
+    margin-bottom: 15px;
+  }
+  
+  .image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 15px;
+    overflow: hidden;
+    border: 1px solid black;
+  }
+  
+  .image img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .content .name {
+    color: #000000;
+    margin-bottom: 0;
+  }
+  .content {
+    font-size: 0.9rem;
+    color: #808184;
+  }
+  .content .doctor {
+    font-size: 0.9rem;
+  }
+  .content .title {
+    margin-bottom: 0;
+  }
+  .iconrate {
+    padding: 5px 0;
+  }
+  .iconrate i {
+    color: #ffb624;
+  }
+  .iconrate i:not(:last-child) {
+    margin-right: 10px;
+  }
+  .rate {
+  }
+  
+  .waitTime {
+    color: rgb(2, 192, 2);
+  }
+  
+  .slide{
+    overflow: hidden;
+    border-radius: 5px;
+    border: 1px solid #a0a0a0;
+  }
+  
+  .slide h6{
+   margin-bottom: 0;
+   padding: 10px 0;
+  }
+  
+  .slide p{
+   margin-bottom: 0;
+  
+  }
+  
+  .slide .date{
+  padding: 35px 0;
+  
+  }
+  
+  .slide .date p{
+  font-size: .8rem;
+  /* font-weight: bold; */
+  
+  }
+  .slide .date p span{
+  /* font-size: .8rem; */
+  font-weight: bold;
+  
+  }
+  
+  .slide  h6{
+  font-size: .8rem;
+  /* font-weight: bold; */
+  
+  }
+  
+  
+  @media (max-width: 995px) {
+  
+    .singleImagDetail{
+      flex-direction: column;
+      justify-content: center;
+      /* align-items: center; */
+    }
+    .image {
+      margin-bottom: 20px;
+    }
+  }
+  @media (max-width: 566px) {
+    /* .singleLawer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    } */
+    .image {
+      margin-bottom: 20px;
+    }
+  }
+  

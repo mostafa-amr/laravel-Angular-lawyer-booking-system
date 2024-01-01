@@ -1,0 +1,134 @@
+.practiceDetails {
+  padding: 75px 30px;
+  /* border-top: 2px solid #abb8c3; */
+  border-bottom: 2px solid #abb8c3;
+  background-color: #f5f5f5;
+
+  /* background-color: aquamarine; */
+}
+.headerMain {
+  margin-bottom: 50px;
+}
+.practiceDetailsHeader {
+  position: relative;
+  width: fit-content;
+  /* background-color: chartreuse; */
+}
+
+.createBtn{
+  border-radius: 2px;
+  background-color: #f5f5f5;
+  color: rgb(129, 128, 128);
+  border: 2px solid #777777;
+  /* width: 250px; */
+  /* text-align: start; */
+}
+.createBtn:hover{
+  border-radius: 2px;
+  background-color:#cc8800;
+  color:#f5f5f5;
+  border: 2px solid #777777;
+  /* width: 250px; */
+  /* text-align: start; */
+}
+.practiceDetailsHeader::after {
+  content: "";
+  width: 25px;
+  height: 4px;
+  background-color: #cc8800;
+  position: absolute;
+  top: 50%;
+  right: -50px;
+  z-index: 10;
+  transform: translate(0px, -50%);
+}
+
+.contentTabs {
+}
+.nav {
+  background-color: #ffffff;
+  height: 100%;
+  border: 2px solid #ddd;
+
+}
+.contentTabs i {
+}
+.contentTabs button {
+  border-radius: 2px;
+  background-color: #f5f5f5;
+  color: rgb(129, 128, 128);
+  /* border: 2px solid #f5f5f5; */
+  /* width: 250px; */
+  text-align: start;
+}
+.contentTabs button.active {
+  background-color: white;
+  color: #cc8800;
+  /* border: 2px solid #ddd; */
+  border-top: 2px solid #ddd;
+  border-bottom: 2px solid #ddd;
+  /* width: calc(100% + 2px); */
+  position: relative;
+  z-index: 1000;
+  text-align: start;
+}
+
+.contentTabs .tab-content {
+  border: 2px solid #ddd;
+  background-color: white;
+  color: black;
+  padding: 10px 30px;
+}
+.contentTabs .tab-pane h4 {
+  color: #cc8800;
+}
+.contentTabs .tab-pane {
+}
+
+@media (max-width: 780px) {
+  .contentwrap {
+    flex-wrap: wrap;
+  }
+  .contentwrap .nav {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .contentTabs button.active {
+    /* border-right: 2px solid #ddd; */
+  }
+}
+
+.jionAndView.active {
+  display: none;
+  color: #c2b18f;
+  background-color: #cc8800;
+}
+
+.createForm form
+{
+  background-color: #cc880073;
+  padding: 40px 30px;
+  border-radius: 10px;
+
+
+}
+
+.createForm input{
+  box-shadow: none;
+
+}
+.createForm button.active{
+  background-color: #ffffff;
+  border: 2px solid rgb(167, 167, 167);
+  color: #cc8800;
+
+}
+.createForm button.active:hover{
+  background-color: #cc8800;
+  border: 2px solid rgb(167, 167, 167);
+  color: white;
+
+}
+.jionAndView.active{
+
+}

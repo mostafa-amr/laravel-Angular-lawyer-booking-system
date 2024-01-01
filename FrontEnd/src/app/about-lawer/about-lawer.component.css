@@ -1,0 +1,262 @@
+.allLawer {
+  padding: 30px 0;
+}
+
+.singleLawer {
+  /* display: flex; */
+  /* align-items: flex-start; */
+  padding: 35px 20px;
+  border-radius: 10px;
+  background-color: #ffb62442;
+  transition: 0.2s;
+}
+
+.singleImagDetail {
+  display: flex;
+  align-items: flex-start;
+  background-color: #ffb62442;
+  padding: 30px;
+  border-radius: 10px;
+}
+.headTitl {
+  color: #ffb624;
+}
+.singleLawer:hover {
+  background-color: #f7b02170;
+}
+.singleLawer:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.image {
+  width: 175px;
+  height: 150px;
+  border-radius: 50%;
+  margin-right: 15px;
+  overflow: hidden;
+  border: 1px solid black;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+}
+
+.content .name {
+  color: #8b8b8b;
+  margin-bottom: 0;
+  font-size: 2rem;
+}
+.content {
+  font-size: 0.9rem;
+  color: #808184;
+}
+.content .doctor {
+  /* font-size: 0.9rem; */
+}
+.content .title {
+  margin-bottom: 0;
+}
+.iconrate {
+  padding: 20px 0;
+}
+.iconrate i {
+  color: #ffb624;
+  font-size: 1.7rem;
+}
+.iconrate i:not(:last-child) {
+  margin-right: 10px;
+}
+.rate {
+}
+
+.waitTime {
+  color: rgb(2, 192, 2);
+}
+
+.slide {
+  overflow: hidden;
+  border-radius: 5px;
+  border: 1px solid #a0a0a0;
+}
+
+.slide h6 {
+  margin-bottom: 0;
+  padding: 10px 0;
+}
+
+.slide p {
+  margin-bottom: 0;
+}
+
+.slide .date {
+  padding: 35px 0;
+}
+
+.slide .date p {
+  font-size: 0.8rem;
+  /* font-weight: bold; */
+}
+.slide .date p span {
+  /* font-size: .8rem; */
+  font-weight: bold;
+}
+
+.slide h6 {
+  font-size: 0.8rem;
+  /* font-weight: bold; */
+}
+
+.about {
+  border-radius: 10px;
+  background-color: #ffb62442;
+  padding: 30px;
+}
+
+.doctorReview {
+  border-radius: 10px;
+  background-color: #ffb62442;
+  padding: 30px;
+}
+
+.iconrate i {
+  font-size: 1.2rem;
+}
+
+.userReviws {
+  border-bottom: 2px solid gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userReviws .rateNum {
+  padding: 5px 15px;
+  border-radius: 5px;
+  background-color: #ee9f0170;
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 0;
+}
+.userReviws .rateNum p {
+  margin: 0;
+}
+
+@media (max-width: 995px) {
+  .singleImagDetail {
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+  }
+  .image {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 566px) {
+  /* .singleLawer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    } */
+  .image {
+    margin-bottom: 20px;
+  }
+}
+
+.rightDetails {
+  background-color: #ffb62442;
+
+  /* border-radius: 10px; */
+}
+
+.header {
+  background-color: #ee9f0170;
+  padding: 10px 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.detai {
+  padding: 10px;
+  background-color: #ee9f0170;
+  margin-left: 5px;
+  border-radius: 5px;
+}
+.detai i {
+  font-size: 1.2rem;
+}
+.loca i {
+  font-size: 1.2rem;
+}
+
+.tit,
+.detaIcon,
+.loca {
+  border-bottom: 2px solid #ffb624;
+}
+.contSticky {
+  position: sticky;
+  top: 10px;
+}
+
+@media (max-width: 994px) {
+  .contSticky {
+    position: static;
+  }
+}
+form {
+  width: 100%;
+  /* background-color: aqua; */
+}
+textarea {
+  resize: none;
+  width: 100%;
+  height: 100px;
+  /* background-color: cadetblue; */
+  margin-bottom: 15px;
+}
+textarea:focus {
+  box-shadow: none;
+}
+input:focus {
+  box-shadow: none;
+}
+.loginBtn {
+  margin-top: 5px;
+  border: none;
+  outline: none;
+  border: 2px solid #cc8800;
+  background-color: white;
+  color: black;
+  border-radius: 7px;
+  padding: 5px 15px;
+  transition: 0.3s;
+}
+.loginBtn.active {
+  margin-top: 5px;
+  border: none;
+  outline: none;
+  border: 2px solid #cc8800;
+  background-color: white;
+  color: black;
+  border-radius: 7px;
+  padding: 5px 15px;
+  transition: 0.3s;
+}
+
+.loginBtn.active:hover {
+  border: 2px solid #878787;
+  background-color: #cc8800;
+  color: white;
+}
+
+.freeconsult {
+  border: 2px solid #cc8800 !important;
+}
+.freeconsult:hover {
+  border: 2px solid black;
+  background-color: #cc8800;
+  color: white;
+}

@@ -1,0 +1,115 @@
+<div class="adminUserPage mt-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-12 col-md-12">
+        <div class="card table-card">
+          <div class="card-header">
+            <h1 class="text-center">All specializations</h1>
+            <div class="card-header-right">
+              <a routerLink="create">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="36"
+                  height="36"
+                  viewBox="0 0 24 24"
+                  style="fill: rgba(8, 119, 230, 1); transform: ; msfilter: "
+                >
+                  <path
+                    d="M4.5 8.552c0 1.995 1.505 3.5 3.5 3.5s3.5-1.505 3.5-3.5-1.505-3.5-3.5-3.5-3.5 1.505-3.5 3.5zM19 8h-2v3h-3v2h3v3h2v-3h3v-2h-3zM4 19h10v-1c0-2.757-2.243-5-5-5H7c-2.757 0-5 2.243-5 5v1h2z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="card-block">
+            <div class="for">
+              <table class="table table-responsive text-center w-75 mx-auto">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Name</th>
+
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let userData of data; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>
+                      <div class="d-inline-block align-middle">
+                        <div class="d-inline-block">
+                          <h5
+                            style="
+                              word-wrap: break-word;
+                              white-space: pre-wrap;
+                              word-break: break-word;
+                            "
+                          >
+                            {{ userData.name }}
+                          </h5>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <a class="btn" (click)="redirectToEdit(userData.id)">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-pencil"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"
+                          />
+                        </svg>
+                      </a>
+                    </td>
+                    <td>
+                      <form
+                        method="post"
+                        onSubmit="return confirm('Are You Sure To Delete This User?')"
+                      >
+                        <button
+                          (click)="deleteData(userData.id)"
+                          class="btn btn-sm bg-transparent"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            width="24"
+                            height="24"
+                            style="fill: rgba(245, 8, 8, 1)"
+                          >
+                            <path
+                              d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z"
+                            ></path>
+                            <path d="M9 10h2v8H9zm4 0h2v8h-2z"></path>
+                          </svg>
+                        </button>
+                      </form>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="d-flex justify-content-center">
+                <mat-paginator
+                  [length]="100"
+                  [pageSize]="10"
+                  [pageSizeOptions]="[5, 10, 25, 100]"
+                  aria-label="Select page"
+                >
+                </mat-paginator>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container text-right"></div>
+  </div>
+</div>

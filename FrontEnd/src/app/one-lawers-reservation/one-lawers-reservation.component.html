@@ -1,0 +1,226 @@
+<div class="reservation">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="lawerInfo">
+          <div class="flexInfo">
+            <div class="image">
+              <!-- <img [src]="oneLawerReserv?.image" alt="" /> -->
+              <img [src]="uploadeImage + oneLawerReserv?.user?.image" alt="" />
+            </div>
+            <div class="infoText">
+              <h5 class="name">
+                {{ oneLawerReserv?.user?.name }}
+              </h5>
+              <p>0{{ oneLawerReserv?.user?.phone }}</p>
+            </div>
+          </div>
+          <p class="details">
+            {{ lawerday }} - From {{ lawerfrom }} To {{ lawerto }} , Reservation
+            required, first-come, first-served
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6 mt-3 mt-lg-0">
+        <div class="formReserv">
+          <h5 class="text-center py-3 bg-secondary text-white">
+            Enter Your Info.
+          </h5>
+          <form
+            action=""
+            [formGroup]="reservationForm"
+            (ngSubmit)="getUserData(reservationForm)"
+            (change)="getValidate($event)"
+          >
+            <div class="mb-5">
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1"
+                  ><i class="fa-solid fa-user"></i
+                ></span>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="User name"
+                  aria-label="Username"
+                  name="name"
+                  formControlName="client_name"
+                  aria-describedby="basic-addon1"
+                  [ngStyle]="{
+                    'border-color':
+                      reservationForm.controls['client_name'].touched &&
+                      reservationForm.controls['client_name'].invalid
+                        ? 'red'
+                        : 'grey'
+                  }"
+                />
+              </div>
+              <div
+                class="text-danger mt-1"
+                *ngIf="
+                  reservationForm.controls['client_name'].touched &&
+                  reservationForm.controls['client_name'].invalid
+                "
+              >
+                <small
+                  *ngIf="reservationForm.controls['client_name']?.errors?.['required']"
+                  >client_name is a required field!</small
+                >
+                <small
+                  *ngIf="reservationForm.controls['client_name']?.errors?.['minlength']"
+                  >Length Should Be More Than 3 Char!!!
+                </small>
+                <small
+                  *ngIf="reservationForm.controls['client_name']?.errors?.['maxlength']"
+                  >Length Should Be Less Than 10 Char!!!
+                </small>
+              </div>
+            </div>
+
+            <div class="mb-5">
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1"
+                  ><i class="fa-solid fa-phone"></i
+                ></span>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="User mobile"
+                  aria-label="Username"
+                  name="mobile"
+                  formControlName="client_phone"
+                  aria-describedby="basic-addon1"
+                  [ngStyle]="{
+                    'border-color':
+                      reservationForm.controls['client_phone'].touched &&
+                      reservationForm.controls['client_phone'].invalid
+                        ? 'red'
+                        : 'grey'
+                  }"
+                />
+              </div>
+              <div
+                class="text-danger mt-1"
+                *ngIf="
+                  reservationForm.controls['client_phone'].touched &&
+                  reservationForm.controls['client_phone'].invalid
+                "
+              >
+                <small
+                  *ngIf="reservationForm.controls['client_phone']?.errors?.['required']"
+                  >Mobile is a required field!</small
+                >
+                <!-- <small *ngIf="reservationForm.controls['mobile']?.errors?.['maxlength']"
+    >mobile Should Greater Than 17 !!!
+  </small> -->
+                <small
+                  *ngIf="reservationForm.controls['client_phone']?.errors?.['pattern']"
+                  >Mobile Not Correct !!!
+                </small>
+              </div>
+            </div>
+            <div class="mb-5">
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1"
+                  ><i class="fa-regular fa-envelope"></i
+                ></span>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="User gmail"
+                  aria-label="Username"
+                  formControlName="client_email"
+                  name="mail"
+                  aria-describedby="basic-addon1"
+                  [ngStyle]="{
+                    'border-color':
+                      reservationForm.controls['client_email'].touched &&
+                      reservationForm.controls['client_email'].invalid
+                        ? 'red'
+                        : 'grey'
+                  }"
+                />
+              </div>
+              <div
+                class="text-danger mt-1"
+                *ngIf="
+                  reservationForm.controls['client_email'].touched &&
+                  reservationForm.controls['client_email'].invalid
+                "
+              >
+                <small
+                  *ngIf="reservationForm.controls['client_email']?.errors?.['required']"
+                  >E-Mail is a required field!</small
+                >
+                <small
+                  *ngIf="reservationForm.controls['client_email']?.errors?.['client_email']"
+                  >E-Mail Don't Match !!!
+                </small>
+              </div>
+            </div>
+            <div class="mb-5">
+              <input
+                type="date"
+                formControlName="appointment_date"
+                id="birthday"
+                name="birthday"
+                [ngStyle]="{
+                  'border-color':
+                    reservationForm.controls['appointment_date'].touched &&
+                    reservationForm.controls['appointment_date'].invalid
+                      ? 'red'
+                      : 'grey'
+                }"
+              />
+              <div
+                class="text-danger mt-1"
+                *ngIf="
+                  reservationForm.controls['appointment_date'].touched &&
+                  reservationForm.controls['appointment_date'].invalid
+                "
+              >
+                <small
+                  *ngIf="reservationForm.controls['appointment_date']?.errors?.['required']"
+                  >Date is a required field!</small
+                >
+              </div>
+            </div>
+            <!-- <div class="mb-5">
+              <div
+                class="lableInfo d-flex justify-content-between align-items-center"
+              >
+                <p>
+                  Vezeeta Points Earned
+                  <i class="exlamition fa-solid fa-exclamation ms-2"></i>
+                </p>
+                <p class="point">
+                  <i class="fa-solid fa-medal me-2"></i> 300 points
+                </p>
+              </div>
+            </div> -->
+            <div class="but">
+              <div class="book">
+                <input
+                  type="submit"
+                  value="Book-Cash"
+                  class="bookbtn active btn me-3"
+                  [ngClass]="{ active: reservationForm.valid }"
+                  [disabled]="reservationForm.invalid"
+                />
+
+                <a [routerLink]="['/alllawer', 'all', 'all', 'all']">
+                  <button class="btn btn-outline-secondary me-3">
+                    Cancel
+                  </button></a
+                >
+                <div class="over">
+                  <div class="lay" [class.d-none]="reservationForm.valid"></div>
+                  <div class="par mt-3" #paymentRef></div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

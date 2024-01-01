@@ -1,0 +1,116 @@
+<div class="freeConsulte">
+  <div class="navigator">
+    <div class="navgateHeader">
+      <h1>Free Consulte</h1>
+    </div>
+    <div class="navBar d-flex align-items-center">
+      <a routerLink="/home"><i class="fa-solid fa-house pe-3"></i></a>
+      <i class="fa-solid fa-angle-right pe-3"></i>
+      <p>free consulte</p>
+    </div>
+  </div>
+  <div class="semiContainer">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <div class="formContact">
+            <h3>Do You Need Consultation?</h3>
+            <p>Send your request so we will contact you as soon as possible.</p>
+            <form class="row g-3">
+              <div class="mb-1">
+                <!-- <label for="name" class="form-label">Name</label> -->
+                <input
+                  type="name"
+                  class="form-control"
+                  id="name"
+                  name="name"
+                  placeholder="Your Name"
+                />
+              </div>
+              <div class="mb-1">
+                <!-- <label for="name" class="form-label">Name</label> -->
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  placeholder="Your Email"
+                />
+              </div>
+              <div class="mb-1">
+                <div class="row">
+                  <div class="col">
+                    <!-- <label for="name" class="form-label">Name</label> -->
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="phone"
+                      placeholder="Your Phone"
+                    />
+                  </div>
+                  <div class="col">
+                    <!-- <label for="name" class="form-label">Name</label> -->
+                    <select
+                      class="form-select"
+                      aria-label="Default select example"
+                    >
+                      <option selected>select Department</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <textarea
+                  name="question"
+                  id="question"
+                  placeholder="Your Question"
+                ></textarea>
+              </div>
+              <div class="btnDiv">
+                <input type="submit" value="Send Message" class="queSubmit" />
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+         <div class="rightParent">
+          <div class="right">
+            <div class="contIcon">
+              <div class="icon">
+                <i class="fa-regular fa-circle-question"></i>
+              </div>
+              <div class="titl">
+                <h4>Call Free</h4>
+                <p class="info">+1 (800) 333 44 55</p>
+              </div>
+            </div>
+            <div class="contIcon">
+              <div class="icon">
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <div class="titl">
+                <h4>Email</h4>
+                <p class="info">avocato354@gmail.com</p>
+              </div>
+            </div>
+            <div class="contIcon">
+              <div class="icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="titl">
+                <h4>Head Office</h4>
+                <p class="info">Unit 48, 23 Ave. New York USA</p>
+              </div>
+            </div>
+          </div>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

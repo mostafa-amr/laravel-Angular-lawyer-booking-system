@@ -1,0 +1,178 @@
+<div class="adminUserPage mt-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-12 col-md-12">
+        <div class="card table-card">
+          <div class="card-header">
+            <h1 class="text-center">All Users</h1>
+            <div class="card-header-right d-flex justify-content-between">
+              <mat-form-field>
+                <mat-label>Filter Roles</mat-label>
+                <mat-select [(ngModel)]="filter">
+                  <mat-option value="">ALL</mat-option>
+                  <mat-option value="admin">Admins</mat-option>
+                  <mat-option value="user">Users</mat-option>
+                  <mat-option value="lawyer">Lawyers</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <a routerLink="create">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="36"
+                  height="36"
+                  viewBox="0 0 24 24"
+                  style="fill: rgba(8, 119, 230, 1); transform: ; msfilter: "
+                >
+                  <path
+                    d="M4.5 8.552c0 1.995 1.505 3.5 3.5 3.5s3.5-1.505 3.5-3.5-1.505-3.5-3.5-3.5-3.5 1.505-3.5 3.5zM19 8h-2v3h-3v2h3v3h2v-3h3v-2h-3zM4 19h10v-1c0-2.757-2.243-5-5-5H7c-2.757 0-5 2.243-5 5v1h2z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="card-block">
+            <div class="for">
+              <table class="table table-responsive text-center w-75 mx-auto">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>email</th>
+                    <th>Role</th>
+                    <th>Show</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <ng-container *ngFor="let userData of data; let i = index">
+                    <tr *ngIf="userData.role == filter || !filter">
+                      <td>{{ i + 1 }}</td>
+                      <td>
+                        <div class="d-inline-block align-middle">
+                          <div class="d-inline-block">
+                            <h5
+                              style="
+                                word-wrap: break-word;
+                                white-space: pre-wrap;
+                                word-break: break-word;
+                              "
+                            >
+                              {{ userData.name }}
+                            </h5>
+                          </div>
+                        </div>
+                      </td>
+                      <td style="">{{ userData.email }}</td>
+                      <td style="">{{ userData.role }}</td>
+
+                      <td>
+                        <a class="btn" (click)="viewUser(userData.id)">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            style="fill: rgba(245, 8, 7, 1)"
+                          >
+                            <path
+                              d="M9.5 12c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm1.5 1H8c-3.309 0-6 2.691-6 6v1h15v-1c0-3.309-2.691-6-6-6z"
+                            ></path>
+                            <path
+                              d="M16.604 11.048a5.67 5.67 0 0 0 .751-3.44c-.179-1.784-1.175-3.361-2.803-4.44l-1.105 1.666c1.119.742 1.8 1.799 1.918 2.974a3.693 3.693 0 0 1-1.072 2.986l-1.192 1.192 1.618.475C18.951 13.701 19 17.957 19 18h2c0-1.789-.956-5.285-4.396-6.952z"
+                            ></path>
+                          </svg>
+                        </a>
+                      </td>
+
+                      <td>
+                        <a class="btn" (click)="redirectToEdit(userData.id)">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            style="fill: rgba(13, 98, 241, 1)"
+                          >
+                            <path
+                              d="M15 11h7v2h-7zm1 4h6v2h-6zm-2-8h8v2h-8zM4 19h10v-1c0-2.757-2.243-5-5-5H7c-2.757 0-5 2.243-5 5v1h2zm4-7c1.995 0 3.5-1.505 3.5-3.5S9.995 5 8 5 4.5 6.505 4.5 8.5 6.005 12 8 12z"
+                            ></path>
+                          </svg>
+                        </a>
+                      </td>
+                      <td>
+                        <form
+                          method="post"
+                          onSubmit="return confirm('Are You Sure To Delete This User?')"
+                        >
+                          <button
+                            (click)="deleteData(userData.id)"
+                            class="btn btn-sm bg-transparent"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              width="24"
+                              height="24"
+                              style="fill: rgba(245, 8, 8, 1)"
+                            >
+                              <path
+                                d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z"
+                              ></path>
+                              <path d="M9 10h2v8H9zm4 0h2v8h-2z"></path>
+                            </svg>
+                          </button>
+                        </form>
+                      </td>
+                      <td>
+                        <p
+                          *ngIf="
+                            !userData.completed && userData.role == 'lawyer';
+                            else elsecomplete
+                          "
+                          class="text-danger"
+                        >
+                          incomplete
+                        </p>
+                        <ng-template #elsecomplete>
+                          <p class="text-success">complete</p>
+                        </ng-template>
+                        <p
+                          *ngIf="
+                            !userData.verified && userData.role == 'lawyer';
+                            else elseverified
+                          "
+                          class="text-danger"
+                        >
+                          not verified
+                        </p>
+                        <ng-template #elseverified>
+                          <p class="text-success">verified</p>
+                        </ng-template>
+                      </td>
+                    </tr>
+                  </ng-container>
+                </tbody>
+              </table>
+              <div class="d-flex justify-content-center">
+                <mat-paginator
+                  [length]="100"
+                  [pageSize]="10"
+                  [pageSizeOptions]="[5, 10, 25, 100]"
+                  aria-label="Select page"
+                >
+                </mat-paginator>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container text-right"></div>
+  </div>
+</div>
+<!-- <button (click)="getData()">Get Users</button>
+<button (click)="deleteData()">delete User</button>
+<button (click)="postData()">post User</button> -->

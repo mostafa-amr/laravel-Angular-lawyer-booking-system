@@ -1,0 +1,48 @@
+    <div class="group">
+        <h4 class="text-center mt-4">My Groups as Admin</h4>
+        <ng-container *ngIf="adminGroupsList">
+          <!-- <h1 *ngFor="let group of user.groups; index as index">
+            {{ group.name }}
+          </h1> -->
+          <button
+            *ngFor="let group of adminGroupsList; index as index"
+            class="nav-link"
+            [class.active]="index == xindex"
+            [id]="'v-pills-' + index + '-tab'"
+            data-bs-toggle="pill"
+            [data-bs-target]="'#v-pills-' + index"
+            type="button"
+            role="tab"
+            (click)="changeIndex(index)"
+            [aria-controls]="'v-pills-home' + index"
+            [aria-selected]="index == xindex ? true : false"
+          >
+            <i class="fa-solid fa-people-group me-2"></i>
+            <span>{{ group.name }}</span>
+          </button>
+        </ng-container>
+      </div>
+      <div class="group">
+        <h4 class="text-center mt-4">My subscripn Groups</h4>
+        <ng-container *ngIf="subscripGroup">
+          <!-- <h1 *ngFor="let group of user.groups; index as index">
+            {{ group.name }}
+          </h1> -->
+          <button
+            *ngFor="let group of subscripGroup; index as index"
+            class="nav-link"
+            [class.active]="index == xindex"
+            [id]="'v-pills-' + index + '-tab'"
+            data-bs-toggle="pill"
+            [data-bs-target]="'#v-pills-' + index"
+            type="button"
+            role="tab"
+            (click)="changeIndex(index)"
+            [aria-controls]="'v-pills-home' + index"
+            [aria-selected]="index == xindex ? true : false"
+          >
+            <i class="fa-solid fa-people-group me-2"></i>
+            <span>{{ group.name }}</span>
+          </button>
+        </ng-container>
+      </div>

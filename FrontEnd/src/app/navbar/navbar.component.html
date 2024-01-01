@@ -1,0 +1,205 @@
+<div class="upperNav py-3">
+  <div class="upperCont ps-5">
+    <div class="d-flex justify-content-between">
+      <div class="left d-flex justify-content-center align-items-center">
+        <div class="icon">
+          <i class="fa-brands fa-facebook-f"></i>
+        </div>
+        <div class="icon">
+          <i class="fa-brands fa-twitter"></i>
+        </div>
+        <div class="icon">
+          <i class="fa-brands fa-linkedin"></i>
+        </div>
+        <div class="icon">
+          <i class="fa-solid fa-envelope"></i>
+        </div>
+      </div>
+      <div class="right d-flex align-items-center justify-content-between">
+        <div class="icon d-flex align-items-center justify-content-between">
+          <i class="fa-solid fa-envelope"></i>
+          <p class="mb-0">teamX@gmail.com</p>
+        </div>
+        <div class="icon d-flex align-items-center justify-content-between">
+          <i class="fa-solid fa-phone"></i>
+          <p class="mb-0">01154599887</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg bg-white">
+  <div class="container-fluid">
+    <div class="logo">
+      <p class="navbar-brand"><img [src]="nav_log" alt="" /></p>
+    </div>
+    <div class="navPhonIcon">
+      <div class="centerIcon">
+        <i class="fa-solid fa-phone-volume"></i>
+      </div>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link home"
+            aria-current="page"
+            routerLink="home"
+            routerLinkActive="active"
+            >Home</a
+          >
+        </li>
+        <!-- <li class="nav-item">
+          <a
+            class="nav-link home"
+            aria-current="page"
+            routerLink="landingSearch"
+            routerLinkActive="active"
+            >landing Search</a
+          >
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="about" routerLinkActive="active"
+            >About Us</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="admin/specializations"
+            routerLinkActive="active"
+            >spesializations</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="admin/users" routerLinkActive="active"
+            >Users</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="contact" routerLinkActive="active"
+            >Contact</a
+          >
+        </li>
+        <!-- <li class="nav-item" >
+          <a class="nav-link" routerLink="mygroup" routerLinkActive="active">MY-GROUP</a>
+        </li> -->
+        <li class="nav-item" *ngIf="isLogin">
+          <a
+            class="nav-link"
+            routerLink="admin/cities"
+            routerLinkActive="active"
+            >Cities</a
+          >
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="blog" routerLinkActive="active"
+            >Blog</a
+          >
+        </li> -->
+
+        <li class="nav-item" *ngIf="userInfo?.role == 'admin'">
+          <a
+            class="nav-link"
+            routerLink="admin/cities"
+            routerLinkActive="active"
+            >Cities</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="userInfo?.role == 'admin'">
+          <a
+            class="nav-link"
+            routerLink="admin/specializations"
+            routerLinkActive="active"
+            >Specializations</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="userInfo?.role == 'admin'">
+          <a class="nav-link" routerLink="admin/users" routerLinkActive="active"
+            >Users</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="userInfo?.role == 'lawyer'">
+          <a class="nav-link" routerLink="dates" routerLinkActive="active"
+            >Dates</a
+          >
+        </li>
+        <li
+          class="nav-item dropdown"
+          *ngIf="userInfo?.role == 'lawyer' || userInfo?.role == 'user'"
+        >
+          <a
+            class="nav-link dropdown-toggle"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Profile
+          </a>
+          <ul class="dropdown-menu">
+            <li *ngIf="userInfo?.role == 'lawyer'">
+              <a class="dropdown-item" routerLink="mydates">My Dates</a>
+            </li>
+            <li *ngIf="userInfo?.role == 'lawyer'">
+              <a class="dropdown-item" routerLink="adminProfile">Setting</a>
+            </li>
+            <li *ngIf="userInfo?.role == 'user'">
+              <a class="dropdown-item" routerLink="notification"
+                >Notification</a
+              >
+            </li>
+            <li *ngIf="userInfo?.role == 'user'">
+              <a class="dropdown-item" routerLink="userProfile">Setting</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" *ngIf="!isLogin">
+          <a
+            class="nav-link freeconsult"
+            routerLink="login"
+            routerLinkActive="active"
+            >Login</a
+          >
+        </li>
+
+        <li class="nav-item" *ngIf="isLogin">
+          <a
+            class="nav-link freeconsult"
+            routerLink="login"
+            routerLinkActive="active"
+            >LogOut</a
+          >
+        </li>
+
+        <!-- <ng-container *ngIf="isLogin">
+          <li class="nav-item"  (click)="logout()"  routerLinkActive="active">
+            <a class="nav-link" 
+              >LogOut</a
+            >
+          </li>
+        </ng-container> -->
+
+        <!-- <li class="nav-item">
+          <a
+            class="nav-link freeconsult"
+            routerLink="freeConsult"
+            routerLinkActive="active"
+            >Free-Consultation</a
+          >
+        </li> -->
+      </ul>
+    </div>
+  </div>
+</nav>

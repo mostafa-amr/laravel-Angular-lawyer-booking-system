@@ -1,0 +1,20 @@
+.navigator{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 30px;
+    background-color: #000000af;
+    color: #ffffff;
+    margin-bottom: 75px;
+  }
+  .navigator a{
+    color: white;
+  
+  }
+  .navigator p{
+   margin: 0;
+   color: #b3b3b3;
+   font-weight: bold;
+  
+  }
+  

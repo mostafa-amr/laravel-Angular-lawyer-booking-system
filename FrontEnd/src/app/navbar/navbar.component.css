@@ -1,0 +1,151 @@
+.navbar {
+  padding: 20px 30px;
+}
+
+
+.navPhonIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-wrap: nowrap; */
+}
+.centerIcon{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background-color: #cc8800;
+    border-radius: 5px;
+    color: white;
+    margin-right: 5px;
+    cursor: pointer;
+
+}
+
+.navPhonIcon i {
+
+ 
+}
+.logo {
+  width: 150px;
+}
+.logo img {
+  width: 100%;
+}
+
+.nav-item .nav-link {
+  border: 2px solid transparent;
+  margin: 0 5px;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.nav-item .nav-link:hover {
+  border: 2px solid black;
+}
+
+.freeconsult {
+  border: 2px solid #cc8800 !important;
+}
+.freeconsult:hover {
+  border: 2px solid black;
+  background-color: #cc8800;
+  color: white;
+  margin: 0 5px;
+}
+
+.active {
+  border: 2px solid black !important;
+  border-radius: 5px;
+}
+.upperNav {
+  border-bottom: 3px solid #dddddd;
+}
+.upperCont {
+  width: 95%;
+  margin: auto;
+}
+.left .icon {
+  width: 35px;
+  height: 35px;
+  margin: 0 5px;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.left .icon i {
+  transform: translateY(0deg);
+
+  color: #cc8800;
+  transition: all 0.7s ease;
+}
+.left .icon:hover i {
+  transform: rotateY(360deg);
+  color: white;
+}
+.left .icon:first-child {
+}
+.left .icon:first-child:hover {
+  background-color: #3b5998;
+}
+
+.left .icon:nth-child(2) {
+}
+.left .icon:nth-child(2):hover {
+  background-color: #00aced;
+}
+
+.left .icon:nth-child(3) {
+}
+.left .icon:nth-child(3):hover {
+  background-color: #007bb6;
+}
+
+.left .icon:nth-child(4) {
+}
+
+.left .icon:nth-child(4):hover {
+  background-color: #abb8c3;
+}
+
+.right .icon {
+  margin-left: 15px;
+}
+
+.right i {
+  width: 35px;
+  height: 25px;
+  border-right: 2px solid #dddddd;
+  /* background-color: #00aced; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #cc8800;
+}
+.right p {
+  margin-bottom: 0;
+  padding-left: 5px;
+}
+
+@media (max-width: 992px) {
+  .navbar-nav .nav-item  {
+   margin-bottom: 10px;
+  }
+  .navbar-nav .nav-item  a{
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .upperNav {
+    display: none;
+  }
+  .centerIcon {
+    display: flex;
+  }
+}

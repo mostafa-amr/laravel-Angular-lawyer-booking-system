@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="main-body">
+    <div class="row gutters-sm">
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img
+                src="../../../../../assets/{{ userData.image }}"
+                alt="Admin"
+                class="rounded-circle"
+                width="150"
+              />
+              <div class="mt-3">
+                <h4>{{ userData.name }}</h4>
+                <p
+                  *ngIf="userData.role == 'lawyer'"
+                  class="text-secondary mb-1"
+                >
+                  {{ spec.specialization[0].name }}
+                </p>
+
+                <div
+                  *ngIf="userData.role == 'lawyer'"
+                  class="d-flex justify-content-between"
+                >
+                  <p>${{ spec.price }}</p>
+                  <p>{{ spec.span }} Hours</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <h4 class="mb-0">Full Name</h4>
+              </div>
+              <div class="col-sm-9 text-secondary">{{ userData.name }}</div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h4 class="mb-0">Email</h4>
+              </div>
+              <div class="col-sm-9 text-secondary">{{ userData.email }}</div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h4 class="mb-0">Phone</h4>
+              </div>
+              <div class="col-sm-9 text-secondary">{{ userData.phone }}</div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <h4 class="mb-0">City</h4>
+              </div>
+              <div class="col-sm-9 text-secondary">{{ city[0].name }}</div>
+            </div>
+            <hr *ngIf="userData.role == 'lawyer'" />
+            <div *ngIf="userData.role == 'lawyer'" class="row">
+              <div class="col-sm-3">
+                <h4 class="mb-0">Address</h4>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{ spec.location }}
+              </div>
+              <hr *ngIf="userData.role == 'lawyer'" />
+              <div
+                *ngIf="userData.role == 'lawyer'"
+                class="col-sm-9 text-secondary"
+              >
+                <img
+                  src="../../../../../assets/{{ spec.idImage }}"
+                  alt="Admin"
+                  width="400"
+                  height="200"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

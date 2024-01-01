@@ -1,0 +1,120 @@
+<div class="adminUserPage">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-12 col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="text-center">Edit specialization</h2>
+          </div>
+
+          <div class="card-body">
+            <form
+              (ngSubmit)="submitForm(specForm)"
+              [formGroup]="specForm"
+              enctype="multipart/form-data"
+            >
+              <!-- name -->
+              <div class="form-group row mb-3">
+                <label for="name" class="col-md-4 col-form-label text-md-end"
+                  >Name</label
+                >
+
+                <div class="col-md-6">
+                  <input
+                    id="name"
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    value=""
+                    [(ngModel)]="data.name"
+                    formControlName="name"
+                    autocomplete="name"
+                    autofocus
+                  />
+                  <div
+                    *ngIf="
+                      specForm.get('name')?.errors != null &&
+                      specForm.get('name')?.touched
+                    "
+                    class="text-danger"
+                  >
+                    <div *ngIf="specForm.get('name')?.errors?.['required']">
+                      Name is required.
+                    </div>
+                    <div *ngIf="specForm.get('name')?.errors?.['minlength']">
+                      Name is short.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row mb-3">
+                <label class="col-md-4 col-form-label text-md-end" for="image"
+                  >Image:</label
+                >
+                <div class="col-md-6">
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="image"
+                    name="image"
+                    (change)="onFileUserChange($event)"
+                    [(ngModel)]="data.image"
+                    formControlName="image"
+                  />
+
+                  <div
+                    *ngIf="
+                      specForm.get('image')?.errors != null &&
+                      specForm.get('image')?.touched
+                    "
+                    class="text-danger"
+                  >
+                    <div *ngIf="specForm.get('image')?.errors?.['required']">
+                      Image is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row mb-3">
+                <label for="name" class="col-md-4 col-form-label text-md-end"
+                  >Description</label
+                >
+
+                <div class="col-md-6">
+                  <input
+                    id="Description"
+                    type="text"
+                    class="form-control"
+                    name="Description"
+                    value=""
+                    [(ngModel)]="data.Description"
+                    formControlName="Description"
+                    autocomplete="Description"
+                    autofocus
+                  />
+                  <div
+                    *ngIf="
+                      specForm.get('Description')?.errors != null &&
+                      specForm.get('Description')?.touched
+                    "
+                    class="text-danger"
+                  >
+                    <div>Description is required.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-0">
+                <div class="col-md-6 offset-md-4">
+                  <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

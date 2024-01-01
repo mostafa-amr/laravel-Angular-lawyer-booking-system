@@ -1,0 +1,130 @@
+<div class="container">
+  <div class="row">
+    <h1 class="text-center mt-4">Create Your Dates</h1>
+    <div class="datesForm">
+      <div class="col-md-6 m-auto">
+        <form
+          action="#"
+          method="POST"
+          [formGroup]="dateForm"
+          (ngSubmit)="createDate(dateForm)"
+        >
+          <div class="mb-1">
+            <label for="day" class="form-label">Day</label>
+            <input
+              type="text"
+              class="form-control"
+              id="day"
+              aria-describedby="daylHelp"
+              placeholder="Ex: sun , mon"
+              formControlName="day"
+              [ngStyle]="{
+                'border-color':
+                  dateForm.controls['day'].touched &&
+                  dateForm.controls['day'].invalid
+                    ? 'red'
+                    : 'grey'
+              }"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                dateForm.controls['day'].touched &&
+                dateForm.controls['day'].invalid
+              "
+            >
+              <small *ngIf="dateForm.controls['day']?.errors?.['required']"
+                >day is a required field!</small
+              >
+              <small *ngIf="dateForm.controls['day']?.errors?.['minlength']"
+                >Length Should Be More Than 3 Char!!!
+              </small>
+              <small *ngIf="dateForm.controls['day']?.errors?.['maxlength']"
+                >Length Should Be Less Than 10 Char!!!
+              </small>
+            </div>
+          </div>
+          <div class="mb-1">
+            <label for="day" class="form-label">start_from</label>
+            <input
+              type="text"
+              class="form-control"
+              id="day"
+              aria-describedby="daylHelp"
+              formControlName="start_hour"
+              placeholder="EX: 12:30"
+              [ngStyle]="{
+                'border-color':
+                  dateForm.controls['start_hour'].touched &&
+                  dateForm.controls['start_hour'].invalid
+                    ? 'red'
+                    : 'grey'
+              }"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                dateForm.controls['start_hour'].touched &&
+                dateForm.controls['start_hour'].invalid
+              "
+            >
+              <small *ngIf="dateForm.controls['start_hour']?.errors?.['required']"
+                >day is a required field!</small
+              >
+              <small *ngIf="dateForm.controls['start_hour']?.errors?.['minlength']"
+                >Length Should Be More Than 3 Char!!!
+              </small>
+              <small *ngIf="dateForm.controls['start_from']?.errors?.['maxlength']"
+                >Length Should Be Less Than 10 Char!!!
+              </small>
+            </div>
+          </div>
+          <div class="mb-1">
+            <label for="day" class="form-label">end_to</label>
+            <input
+              type="text"
+              class="form-control"
+              id="day"
+              aria-describedby="daylHelp"
+              formControlName="end_hour"
+              placeholder="EX: 3:30"
+              [ngStyle]="{
+                'border-color':
+                  dateForm.controls['end_hour'].touched &&
+                  dateForm.controls['end_hour'].invalid
+                    ? 'red'
+                    : 'grey'
+              }"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                dateForm.controls['end_hour'].touched &&
+                dateForm.controls['end_hour'].invalid
+              "
+            >
+              <small *ngIf="dateForm.controls['end_hour']?.errors?.['required']"
+                >day is a required field!</small
+              >
+              <small *ngIf="dateForm.controls['end_hour']?.errors?.['minlength']"
+                >Length Should Be More Than 3 Char!!!
+              </small>
+              <small *ngIf="dateForm.controls['end_hour']?.errors?.['maxlength']"
+                >Length Should Be Less Than 10 Char!!!
+              </small>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="btn loginBtn mt-3"
+            [ngClass]="{ active: dateForm.valid }"
+            [disabled]="dateForm.invalid"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

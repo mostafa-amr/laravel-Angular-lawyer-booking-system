@@ -1,0 +1,106 @@
+<div class="contact">
+  <div class="navigator">
+    <div class="navgateHeader">
+      <h1>Contact Us</h1>
+    </div>
+    <div class="navBar d-flex align-items-center">
+      <a routerLink="/home"><i class="fa-solid fa-house pe-3"></i></a>
+      <i class="fa-solid fa-angle-right pe-3"></i>
+      <p>Contact</p>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="secContainer">
+      <div class="map">
+        <!-- google-maps-demo.component.html -->
+        <google-map
+          height="400px"
+          width="100%"
+          [center]="center"
+          [zoom]="zoom"
+          (mapClick)="moveMap($event)"
+          (mapMousemove)="move($event)"
+        >
+          <map-marker
+            #marker="mapMarker"
+            *ngFor="let markerPosition of markerPositions"
+            [position]="markerPosition"
+            (mapClick)="openInfoWindow(marker)"
+          ></map-marker>
+          <map-info-window>ITI Cairo University</map-info-window>
+        </google-map>
+      </div>
+      <div class="row">
+       
+        
+        <div class="">
+          <div class="right">
+   <div class="row">
+    <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="contIcon">
+      <div class="icon">
+        <i class="fa-regular fa-circle-question"></i>
+      </div>
+      <div class="titl">
+        <h4>Call Free</h4>
+        <p class="info">+1 (800) 333 44 55</p>
+      </div>
+      </div>
+    </div>
+    <div class=" col-sm-6 col-md-4 col-lg-3">
+      <div class="contIcon">
+
+      <div class="icon">
+        <i class="fa-regular fa-envelope"></i>
+      </div>
+      <div class="titl">
+        <h4>Email</h4>
+        <p class="info">avocato354@gmail.com</p>
+      </div>
+      </div>
+    </div>
+    <div class=" col-sm-6 col-md-4 col-lg-3">
+      <div class="contIcon">
+
+      <div class="icon">
+        <i class="fa-solid fa-location-dot"></i>
+      </div>
+      <div class="titl">
+        <h4>Head Office</h4>
+        <p class="info">Unit 48, 23 Ave. New York USA</p>
+      </div>
+      </div>
+    </div>
+    <div class=" col-sm-6 col-md-4 col-lg-3">
+      <div class="contIcon">
+
+      <div class="icon">
+        <i class="fa-solid fa-location-dot"></i>
+      </div>
+      <div class="titl">
+        <h4>Address 2</h4>
+        <p class="info">Unit 27, 65 Ave. Los Angeles USA</p>
+      </div>
+      </div>
+    </div>
+    <div class=" col-sm-6 col-md-4 col-lg-3">
+      <div class="contIcon">
+
+      <div class="icon">
+        <i class="fa-solid fa-phone-volume"></i>
+      </div>
+      <div class="titl">
+        <h4>Office</h4>
+        <p class="info">+1 (800) 425 77 63</p>
+      </div>
+      </div>
+    </div>
+   </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

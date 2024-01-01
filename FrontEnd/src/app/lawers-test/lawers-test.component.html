@@ -1,0 +1,93 @@
+<div class="allLawer">
+  <div class="container-fluid px-4">
+    <h1 class="text-center my-3 headTitl">Our Expert Lawers</h1>
+
+    <div class="singleLawer" *ngFor="let lawer of allLawers">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <a [routerLink]="['/aboutLawer', lawer.id]">
+            <div class="singleImagDetail">
+              <div class="image">
+                <!-- <img [src]="lawer.user.image" alt="" /> -->
+                <img [src]="uploadeImage + lawer.user.image" alt="" />
+              </div>
+              <div class="content">
+                <h5 class="name">
+                  <span class="doctor">{{ lawer.user.name }}</span>
+                  {{ lawer.name }}
+                </h5>
+                <p class="title">
+                  0{{ lawer.user.phone }}
+                </p>
+                <!-- <div class="iconrate">
+                  <i
+                    class="fa-solid fa-star"
+                    *ngFor="let star of numSequence(lawer.rate)"
+                  >
+                  </i>
+                  <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="rate">
+                  Overall Rating From {{ lawer.visitor }} Visitors
+                </p> -->
+
+                <!-- <div class="category">
+                  <i class="fa-solid fa-scale-balanced"></i>
+                  {{ lawer.spicialize }}
+                </div> -->
+                <div class="feess">
+                  <i class="fa-solid fa-money-bill-wave"></i> Fees :
+                  {{ lawer.price }} EGP
+                </div>
+                <div class="waitTime">
+                  <i class="fa-regular fa-clock"></i> Session Time :
+                  {{ lawer.span }} hour
+                </div>
+                <div class="cont">
+                  <i class="fa-solid fa-phone"></i> {{ lawer.phone }} - Cost of
+                  regular call
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 mt-3 mt-lg-0">
+          <div class="singleRight">
+            <swiper-container navigation="true">
+              <!-- <swiper-slide *ngFor="let date of getLawerDates(lawer?.id)" -->
+              <swiper-slide *ngFor="let date of lawer.lawyer_times"
+                ><div class="slide text-center">
+                  <h6 class="bg-secondary text-white">{{ date.day }}</h6>
+                  <div class="date">
+                    <p>
+                      From <span class="">{{ date.start_hour }}</span>
+                    </p>
+                    <p>
+                      To <span class="">{{ date.end_hour }}</span>
+                    </p>
+                  </div>
+                  <a
+                    [routerLink]="[
+                      '/oneLawerReservation',
+                      lawer.id,
+                      date.id,
+                      date.day,
+                      date.start_hour,
+                      date.end_hour
+                    ]"
+                  >
+                    <h6 class="bg-secondary text-white">Book</h6></a
+                  >
+                </div></swiper-slide
+              >
+            </swiper-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<mat-tab-group>
+  <mat-tab label="Main data"
+    ><app-edit-main-data
+      (sendNameToParent)="receiveNameFromChild($event)"
+    ></app-edit-main-data>
+  </mat-tab>
+  <mat-tab
+    *ngIf="dataa.role == 'lawyer' && !errorMessage"
+    label="Lawyer details"
+  >
+    <app-lawyer-edit-details></app-lawyer-edit-details>
+  </mat-tab>
+  <mat-tab
+    *ngIf="dataa.role == 'lawyer' && errorMessage"
+    label="Lawyer details"
+  >
+    <div
+      class="container d-flex justify-content-center align-items-center vh-100"
+    >
+      <div class="text-center">
+        <a
+          class="text-center btn btn-outline-danger text-center"
+          (click)="redirectTopost(dataa.id)"
+          role="button"
+          >Enter Data First
+        </a>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Password"> <app-pass-edit></app-pass-edit> </mat-tab>
+</mat-tab-group>

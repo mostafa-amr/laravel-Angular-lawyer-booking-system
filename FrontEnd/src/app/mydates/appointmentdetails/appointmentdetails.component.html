@@ -1,0 +1,126 @@
+<div class="container pb-5">
+  <div class="row">
+    <h1 class="text-center mb-5">Appointment Details</h1>
+    <div class="card">
+      <div class="card-body">
+        <!-- <p class="card-text">
+                <span class="hed">Appointment_id : </span> <span>{{appointmentDetails.id}}</span>
+              </p> -->
+        <p class="card-text">
+          <span class="hed">Appointment_date : </span>
+          <span> {{ appointmentDetails?.appointment_date }}</span>
+        </p>
+        <p class="card-text">
+          <span class="hed">client_email : </span>
+          <span> {{ appointmentDetails?.client_email }}</span>
+        </p>
+        <p class="card-text">
+          <span class="hed">client_name : </span>
+          <span> {{ appointmentDetails?.client_name }}</span>
+        </p>
+        <p class="card-text">
+          <span class="hed">client_phone : </span>
+          <span> {{ appointmentDetails?.client_phone }}</span>
+        </p>
+        <!-- <p class="card-text">
+                <span class="hed">Appointment_date : </span> <span> {{appointmentDetails.appointment_date}}</span>
+              </p> -->
+      </div>
+    </div>
+  </div>
+
+  <h1 class="my-5 text-center ">Add Comment</h1>
+       <!-- <div class="about mt-3" *ngIf="true"> -->
+        <div class="about mt-3" >
+            <div class="text">
+              <h4>Add Comment</h4>
+              <form
+                action="#"
+                method="POST"
+                [formGroup]="commentForm"
+                (ngSubmit)="addComment(commentForm)"
+              >
+           
+                <div class="mb-1">
+                  <textarea
+                    name=""
+                    id=""
+                    cols="30"
+                    rows="10"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    formControlName="comment"
+                    [ngStyle]="{
+                      'border-color':
+                        commentForm.controls['comment'].touched &&
+                        commentForm.controls['comment'].invalid
+                          ? 'red'
+                          : 'grey'
+                    }"
+                  ></textarea>
+                  <div
+                    class="text-danger"
+                    *ngIf="
+                      commentForm.controls['comment'].touched &&
+                      commentForm.controls['comment'].invalid
+                    "
+                  >
+                    <small
+                      *ngIf="commentForm.controls['comment']?.errors?.['required']"
+                      >comment is a required field!</small
+                    >
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="rate">Rate</label>
+                  <input
+                    type="number"
+                    class="form-control w-25"
+                    id="rate"
+                    aria-describedby="emailHelp"
+                    formControlName="rate"
+                    min="0"
+                    max="5"
+                    [ngStyle]="{
+                      'border-color':
+                        commentForm.controls['rate'].touched &&
+                        commentForm.controls['rate'].invalid
+                          ? 'red'
+                          : 'grey'
+                    }"
+                  />
+                  <div
+                    class="text-danger"
+                    *ngIf="
+                      commentForm.controls['rate'].touched &&
+                      commentForm.controls['rate'].invalid
+                    "
+                  >
+                    <small
+                      *ngIf="commentForm.controls['rate']?.errors?.['required']"
+                      >comment is a required field!</small
+                    >
+  
+                    <small *ngIf="commentForm.controls['rate']?.errors?.['min']"
+                      >Rate Min More Than 0
+                    </small>
+  
+                    <small *ngIf="commentForm.controls['rate']?.errors?.['max']"
+                      >Rate Max less than 5!</small
+                    >
+                  </div>
+                </div>
+                <div *ngIf="error" class="text-danger col-md-6 col-form-label">
+                  <div>{{error.error}}</div>
+                </div>
+                <!-- <button type="submit" class="btn loginBtn">Submit</button> -->
+                <button type="submit" class="btn loginBtn">
+                  <!-- [ngClass]="{ active: commentForm.valid }"
+                [disabled]="commentForm.invalid" -->
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+</div>

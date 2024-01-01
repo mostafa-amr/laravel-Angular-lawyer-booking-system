@@ -1,0 +1,12 @@
+.image img {
+  width: 100%;
+  height: 200px;
+}
+p,h5 {
+  margin: 0;
+  padding: 0;
+}
+
+.star i{
+    color: rgb(255, 230, 1);
+}

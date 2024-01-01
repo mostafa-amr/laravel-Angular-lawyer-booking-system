@@ -1,0 +1,166 @@
+<div class="practiceDetails">
+  <div class="container">
+    <div class="headerMain">
+      <h2 class="practiceDetailsHeade text-center">Groups</h2>
+      <p class="text-center">Choose Your Groups</p>
+    </div>
+    <div class="leftEle d-flex justify-content-end">
+      <button class="createBtn btn mb-3" (click)="openCreatForm()">
+        <span>Create</span>
+      </button>
+    </div>
+    <div class="contentTabs" *ngIf="!openForm">
+      <div class="contentwrap row align-items-stretch">
+        <div class="col-md-4">
+          <div
+            class="nav flex-column nav-pills"
+            id="v-pills-tab"
+            role="tablist"
+            aria-orientation="vertical"
+          >
+            <button
+              *ngFor="let group of arrOfObj; index as index"
+              class="nav-link"
+              [class.active]="index == xindex"
+              [id]="'v-pills-' + index + '-tab'"
+              data-bs-toggle="pill"
+              [data-bs-target]="'#v-pills-' + index"
+              type="button"
+              role="tab"
+              (click)="changeIndex(index)"
+              [aria-controls]="'v-pills-home' + index"
+              [aria-selected]="index == xindex ? true : false"
+            >
+              <i class="fa-solid fa-people-group me-2"></i>
+              <span>{{ group.name }}</span>
+            </button>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="tab-content mt-3 mt-md-0" id="v-pills-tabContent">
+            <div
+              *ngFor="let group of arrOfObj; index as index"
+              class="tab-pane fade show"
+              [class.active]="index == xindex"
+              [id]="'v-pills-' + index"
+              role="tabpanel"
+              [aria-labelledby]="'v-pills-' + index + '-tab'"
+              [tabindex]="index"
+            >
+              <div class="fle d-flex justify-content-between">
+                <h4>{{ group.name }}</h4>
+                <button
+                  *ngIf="!group.joined"
+                  class="jionAndView btn btn-info me-3"
+                  (click)="joinGroup(group.id)"
+                >
+                  <span>Join</span>
+                </button>
+                <button
+                  *ngIf="group.joined"
+                  class="jionAndView btn btn-info me-3"
+                  (click)="joinGroup(group.id)"
+                >
+                  <span>View </span>
+                </button>
+              </div>
+              <div *ngFor="let post of group.posts">
+                <h5>{{ post.post }} ---</h5>
+                <h5>{{ post.name }}</h5>
+
+                <h5>
+                  {{ post.image }}
+                  <!-- <img src="{{ user?.image }}" alt="" /> -->
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="createForm" *ngIf="openForm">
+      <div class="col-md-6 m-auto">
+        <form
+          action="#"
+          method="POST"
+          [formGroup]="createForm"
+          (ngSubmit)="createGroup(createForm)"
+        >
+          <div class="mb-1">
+            <label for="name" class="form-label">Group Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              aria-describedby="emailHelp"
+              formControlName="name"
+              [ngStyle]="{
+                'border-color':
+                  createForm.controls['name'].touched &&
+                  createForm.controls['name'].invalid
+                    ? 'red'
+                    : 'grey'
+              }"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                createForm.controls['name'].touched &&
+                createForm.controls['name'].invalid
+              "
+            >
+              <small *ngIf="createForm.controls['name']?.errors?.['required']"
+                >name is a required field!</small
+              >
+              <small *ngIf="createForm.controls['name']?.errors?.['minlength']"
+                >Length Should Be More Than 3 Char!!!
+              </small>
+              <small *ngIf="createForm.controls['name']?.errors?.['maxlength']"
+                >Length Should Be Less Than 10 Char!!!
+              </small>
+            </div>
+          </div>
+
+          <!-- <div class="mb-1">
+        <label for="description" class="form-label">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="description"
+          id="description"
+          [ngStyle]="{
+            'border-color':
+              createForm.controls['description'].touched &&
+              createForm.controls['description'].invalid
+                ? 'red'
+                : 'grey'
+          }"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            createForm.controls['description'].touched &&
+            createForm.controls['description'].invalid
+          "
+        >
+          <small *ngIf="createForm.controls['description']?.errors?.['required']"
+            >description is a required field!</small
+          >
+
+        </div>
+      </div> -->
+
+          <!-- <button type="submit" class="btn loginBtn">Submit</button> -->
+          <button
+            type="submit"
+            class="btn loginBtn mt-3"
+            [ngClass]="{ active: createForm.valid }"
+            [disabled]="createForm.invalid"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

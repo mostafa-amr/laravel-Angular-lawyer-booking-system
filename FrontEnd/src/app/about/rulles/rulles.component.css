@@ -1,0 +1,190 @@
+.ourRules {
+    padding: 75px 30px ;
+    /* border-top: 2px solid #abb8c3; */
+    border-bottom: 2px solid #abb8c3;
+    background-image: url("../../../assets/about/image1.jpg");
+    background-position: center;
+    background-size: cover;
+    /* background-color: aquamarine; */
+  }
+  .ourRulHead {
+    margin: auto;
+    margin-bottom: 50px;
+    position: relative;
+    width: fit-content;
+    /* background-color: chartreuse; */
+  }
+  .ourRulHead::before {
+    content: "";
+    width: 25px;
+    height: 4px;
+    background-color: #cc8800;
+    position: absolute;
+    top: 50%;
+    left: -50px;
+    z-index: 10;
+    transform: translate(0%, -50%);
+  }
+  .ourRulHead::after {
+    content: "";
+    width: 25px;
+    height: 4px;
+    background-color: #cc8800;
+    position: absolute;
+    top: 50%;
+    right: -50px;
+    z-index: 10;
+    transform: translate(0px, -50%);
+  }
+  
+  
+  .circle .number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: aqua; */
+  }
+  .circle .number p {
+  
+    position: relative;
+    /* background-color: #cc8800; */
+    top:20px;
+    left: 5px;
+    font-size: 2rem;
+    font-weight: bold;
+    transform: rotate(90deg);
+  
+  }
+  .circle .number .perMark {
+    font-size: 1.3rem;
+  }
+  
+  .circle {
+    color: black;
+    width: 180px;
+    height: 180px;
+    position: relative;
+    /* background-color: chartreuse; */
+    transform: rotate(-90deg);
+  }
+  
+  .circle svg {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    
+    
+  }
+  .circle svg circle {
+    width: 180px;
+    height: 180px;
+    fill: none;
+    stroke-width: 7;
+    stroke: #000;
+    transform: translate(20px, 25px);
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+    stroke-linecap: round;
+  }
+  .circle svg circle:nth-child(1) {
+    stroke-dashoffset: 0;
+    stroke: #abb8c3;
+  }
+  .circle1.active svg circle:nth-child(2) {
+    /* stroke-dashoffset: 220; */
+    stroke-dashoffset: 40;
+    stroke: #cc8800;
+    animation: animCircle1 2s;
+  }
+  .circle2.active svg circle:nth-child(2) {
+    /* stroke-dashoffset: 220; */
+    stroke-dashoffset: 65;
+    stroke: #cc8800;
+    animation: animCircle2 2s;
+  
+  }
+  
+  .circle3.active svg circle:nth-child(2) {
+    /* stroke-dashoffset: 220; */
+    stroke-dashoffset: 150;
+    stroke: #cc8800;
+    animation: animCircle3 2s;
+  
+  }
+  .circle4.active svg circle:nth-child(2) {
+    /* stroke-dashoffset: 220; */
+    stroke-dashoffset: 220;
+    stroke: #cc8800;
+    animation: animCircle4 2s;
+  
+  }
+  .circle5.active svg circle:nth-child(2) {
+    /* stroke-dashoffset: 220; */
+    stroke-dashoffset: 100;
+    stroke: #cc8800;
+    animation: animCircle5 2s;
+  
+  }
+  
+  @keyframes animCircle1 {
+    0%{
+      stroke-dashoffset: 440;
+    }
+    100%{
+      stroke-dashoffset: 40;
+    }
+  }
+  
+  @keyframes animCircle2 {
+    0%{
+      stroke-dashoffset: 440;
+    }
+    100%{
+      stroke-dashoffset: 65;
+    }
+  }
+  
+  @keyframes animCircle3 {
+    0%{
+      stroke-dashoffset: 440;
+    }
+    100%{
+      stroke-dashoffset: 150;
+    }
+  }
+  
+  @keyframes animCircle4 {
+    0%{
+      stroke-dashoffset: 440;
+    }
+    100%{
+      stroke-dashoffset: 220;
+    }
+  }
+  
+  @keyframes animCircle5 {
+    0%{
+      stroke-dashoffset: 440;
+    }
+    100%{
+      stroke-dashoffset: 100;
+    }
+  }
+  
+  
+  .percTitle::selection{
+  background-color: #cc8800;
+  color: white;
+  }
+  
+  @media (min-width:1117px) {
+    .percTitle{
+      position: relative;
+      left: -20px;
+    }
+  }

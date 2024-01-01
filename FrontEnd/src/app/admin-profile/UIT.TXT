@@ -1,0 +1,87 @@
+     <div class="group">
+        <h4 class="text-center mt-4">My Groups as Admin</h4>
+        <ng-container *ngIf="adminGroupsList">
+          <!-- <h1 *ngFor="let group of user.groups; index as index">
+            {{ group.name }}
+          </h1> -->
+          <button
+            *ngFor="let group of adminGroupsList; index as index"
+            class="nav-link"
+            [class.active]="index == xindex"
+            [id]="'v-pills-' + index + '-tab'"
+            data-bs-toggle="pill"
+            [data-bs-target]="'#v-pills-' + index"
+            type="button"
+            role="tab"
+            (click)="changeIndex(index)"
+            [aria-controls]="'v-pills-home' + index"
+            [aria-selected]="index == xindex ? true : false"
+          >
+            <i class="fa-solid fa-people-group me-2"></i>
+            <span>{{ group.name }}</span>
+          </button>
+        </ng-container>
+      </div>
+      <div class="group">
+        <h4 class="text-center mt-4">My subscripn Groups</h4>
+        <ng-container *ngIf="subscripGroup">
+          <!-- <h1 *ngFor="let group of user.groups; index as index">
+            {{ group.name }}
+          </h1> -->
+          <button
+            *ngFor="let group of subscripGroup; index as index"
+            class="nav-link"
+            [class.active]="index == xindex"
+            [id]="'v-pills-' + index + '-tab'"
+            data-bs-toggle="pill"
+            [data-bs-target]="'#v-pills-' + index"
+            type="button"
+            role="tab"
+            (click)="changeIndex(index)"
+            [aria-controls]="'v-pills-home' + index"
+            [aria-selected]="index == xindex ? true : false"
+          >
+            <i class="fa-solid fa-people-group me-2"></i>
+            <span>{{ group.name }}</span>
+          </button>
+        </ng-container>
+      </div>
+
+
+
+
+       <div class="myLawers">
+        <h4 class="text-center mt-4">My Appointment</h4>
+        <!-- userAppointment -->
+        <div class="row">
+          <div
+            class="col-md-4 col-lg-3 mb-3"
+            *ngFor="let date of userAppointment"
+          >
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title text-center mb-3">DAY</h5>
+                <p class="card-text">
+                  <span class="hed">Appointment_date : </span>
+                  <span>{{ date.appointment_date }}</span>
+                </p>
+                <p class="card-text">
+                  <span class="hed">Appointment_id : </span>
+                  <span> {{ date.id }}</span>
+                </p>
+                <div class="btt mt-4">
+                  <button
+                    class="freeconsult btn me-3"
+                    [routerLink]="['/appointmentDetails', date.id]"
+                  >
+                    Details
+                  </button>
+                  <!-- <button class="freeconsult btn"  (click)="deleteFun(date.id)">Delete</button> -->
+                </div>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-md-4 col-lg-3 mb-3" *ngFor="let date of allDates"> -->
+      </div>

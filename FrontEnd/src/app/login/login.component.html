@@ -1,0 +1,107 @@
+<div class="login pt-4">
+  <div class="container">
+    <div class="formContainer m-auto col-11 col-md-8 col-lg-5 p-4">
+      <h5 class="text-center">Login</h5>
+      <!-- <ng-container *ngFor="let o of userx">
+        <h1>{{o.email}}</h1>
+      </ng-container> -->
+      <form
+        action="#"
+        method="POST"
+        [formGroup]="loginForm"
+        (ngSubmit)="getLoginData(loginForm)"
+      >
+        <div class="mb-1">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <div *ngIf="errorData?.email" class="text-danger col-md-6 col-form-label">
+            <div>invalid email or password</div>
+          </div>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            formControlName="email"
+            [ngStyle]="{
+              'border-color':
+                loginForm.controls['email'].touched &&
+                loginForm.controls['email'].invalid
+                  ? 'red'
+                  : 'grey'
+            }"
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              loginForm.controls['email'].touched &&
+              loginForm.controls['email'].invalid
+            "
+          >
+            <small *ngIf="loginForm.controls['email']?.errors?.['required']"
+              >Email is a required field!</small
+            >
+
+            <small *ngIf="loginForm.controls['email']?.errors?.['email']"
+              >Email Not Correct !!!
+            </small>
+          </div>
+        </div>
+
+        <div class="mb-1">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            formControlName="password"
+            id="password"
+            [ngStyle]="{
+              'border-color':
+                loginForm.controls['password'].touched &&
+                loginForm.controls['password'].invalid
+                  ? 'red'
+                  : 'grey'
+            }"
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              loginForm.controls['password'].touched &&
+              loginForm.controls['password'].invalid
+            "
+          >
+            <small *ngIf="loginForm.controls['password']?.errors?.['required']"
+              >password is a required field!</small
+            >
+            <!-- 
+            <small *ngIf="loginForm.controls['password']?.errors?.['pattern']"
+              >password Not Correct !!!
+            </small> -->
+          </div>
+        </div>
+
+        <!-- <div class="mb-1 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+          <label class="form-check-label" for="exampleCheck1"
+            >Check me out</label
+          >
+        </div> -->
+
+        <!-- <button type="submit" class="btn loginBtn">Submit</button> -->
+        <button type="submit" class="btn loginBtn">
+          <!-- [ngClass]="{ active: loginForm.valid }"
+        [disabled]="loginForm.invalid" -->
+          Submit
+        </button>
+      </form>
+
+      <div class="mt-4 DontHave">
+        <p class="text-center mt-4">
+          Dont Have Email?
+          <a class="" routerLink="/register">Register</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="adminUserPage">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-12 col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="text-center">Edit City</h2>
+          </div>
+
+          <div class="card-body">
+            <form (ngSubmit)="submitForm(cityForm)" [formGroup]="cityForm">
+              <!-- name -->
+              <div class="form-group row mb-3">
+                <label for="name" class="col-md-4 col-form-label text-md-end"
+                  >Name</label
+                >
+
+                <div class="col-md-6">
+                  <input
+                    id="name"
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    value=""
+                    required
+                    [(ngModel)]="data.name"
+                    formControlName="name"
+                    autocomplete="name"
+                    autofocus
+                    placeholder="{{ cityData }}"
+                  />
+                  <div
+                    *ngIf="
+                      cityForm.get('name')?.errors != null &&
+                      cityForm.get('name')?.touched
+                    "
+                    class="text-danger"
+                  >
+                    <div>Name is required.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-0">
+                <div class="col-md-6 offset-md-4">
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    [disabled]="cityForm.invalid"
+                  >
+                    Edit City
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

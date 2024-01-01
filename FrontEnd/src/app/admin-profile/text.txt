@@ -1,0 +1,320 @@
+
+
+
+<div class="adminProfile mt-5">
+  <div class="container border border-2 border-secondary">
+    <div class="headerAdmin">
+      <div class="row justify-content-between align-items-center">
+        <div class="col-md-4">
+          <div class="leftPro d-flex align-items-center">
+            <div class="image me-3">
+              <div class="icon" (click)="openWindow('image')">
+                <i class="fa-solid fa-pen"></i>
+              </div>
+              <img [src]="image1" alt="" />
+              <div class="acvitPar">
+                <div class="iconActive"></div>
+              </div>
+              <div class="modal-dialog modal-dialog-centered"></div>
+            </div>
+            <div class="cont">
+              <h4>Mostafa</h4>
+              <p class="m-0">Full Stack Developer</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mt-3 mt-md-0">
+          <div class="btnX text-center">
+            <button type="button" class="btn btn-outline-success me-3">
+              Public View
+            </button>
+            <button type="button" class="btn btn-success">
+              Public Setting
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="">
+      <div class="row">
+        <div class="titleAndPrice col-md-3 border border-1 border-secondary">
+          <div class="leftDe">
+            <h6>Promote Your Profile</h6>
+            <h6>Available Badge</h6>
+            <h6>Post Your Profile</h6>
+            <p class="m-0">Lorem ipsum dolor sit amet.</p>
+            <p class="m-0">Lorem ipsum dolor sit amet.</p>
+            <p class="m-0">Lorem ipsum dolor sit amet.</p>
+            <p class="m-0">Lorem ipsum dolor sit amet.</p>
+            <p class="m-0">Lorem ipsum dolor sit amet.</p>
+          </div>
+        </div>
+        <div class="titleAndPrice col-md-9 border border-1 border-secondary">
+          <div class="flexPrice d-flex justify-content-between flex-wrap">
+            <div class="title">
+              <h5>SoftWare Engineer (Web Development)</h5>
+              <div class="icon" (click)="openWindow('title')">
+                <i class="fa-solid fa-pen"></i>
+              </div>
+            </div>
+            <div class="price">
+              <h5>$50.00/hr</h5>
+              <div class="icon" (click)="openWindow('price')">
+                <i class="fa-solid fa-pen"></i>
+              </div>
+            </div>
+          </div>
+          <div class="description mt-4">
+            <p class="">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita,
+              omnis ipsa. Dolore a illum, fuga aut repudiandae minima ab vitae
+              ullam! Eligendi quis delectus, dolor accusamus fugit in placeat
+              unde enim tenetur omnis vel eveniet, perspiciatis magnam
+              accusantium voluptates temporibus similique dolorum dolore
+              voluptatibus. Tempore quasi molestiae commodi neque possimus.
+            </p>
+            <div class="icon" (click)="openWindow('description')">
+              <i class="fa-solid fa-pen"></i>
+            </div>
+          </div>
+          <div class="skills mt-4">
+            <p>" FrontEnd Skills "</p>
+            <p>-BackEnd Skills</p>
+            <p>-FullStack Skills</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divForm" *ngIf="openBool">
+    <form action="#" method="POST">
+      <div class="closBtn" (click)="closeWindow()">x</div>
+      <div class="mb-1" [ngClass]="openTabs == 'image' ? 'd-black' : 'd-none'">
+        <label for="name" class="form-label">Picture</label>
+        <input
+          type="file"
+          class="form-control"
+          id="image"
+          name="image"
+          aria-describedby="imageHelp"
+        />
+        <!-- <div id="emailHelp" class="form-text">
+          We'll never share your email with anyone else.
+        </div> -->
+      </div>
+      <div class="mb-1" [ngClass]="openTabs == 'title' ? 'd-black' : 'd-none'">
+        <label for="exampleInputEmail1" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          name="title"
+          aria-describedby="titleHelp"
+        />
+        <!-- <div id="emailHelp" class="form-text">
+          We'll never share your email with anyone else.
+        </div> -->
+      </div>
+      <div class="mb-1" [ngClass]="openTabs == 'price' ? 'd-black' : 'd-none'">
+        <label for="age" class="form-label">Price</label>
+        <input
+          type="number"
+          class="form-control"
+          id="price"
+          name="price"
+          aria-describedby="priceHelp"
+        />
+        <!-- <div id="emailHelp" class="form-text">
+          We'll never share your email with anyone else.
+        </div> -->
+      </div>
+      <div
+        class="mb-1"
+        [ngClass]="openTabs == 'description' ? 'd-black' : 'd-none'"
+      >
+        <label for="mobile" class="form-label">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          name="description"
+          aria-describedby="descHelp"
+        />
+        <!-- <div id="emailHelp" class="form-text">
+          We'll never share your email with anyone else.
+        </div> -->
+      </div>
+
+      <button type="submit" class="btnSubmit">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+*****************************************
+
+  <div class="divForm" *ngIf="openBool">
+    <form
+      action="#"
+      method="POST"
+      [formGroup]="editUserForm"
+      (ngSubmit)="editUserData(editUserForm)"
+    >
+      <div class="closBtn" (click)="closeWindow()">x</div>
+      <!-- name -->
+      <div class="mb-1" [ngClass]="openTabs == 'name' ? 'd-black' : 'd-none'">
+        <label for="name" class="form-label">name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          formControlName="name"
+          aria-describedby="nameHelp"
+          [ngStyle]="{
+            'border-color':
+              editUserForm.controls['name'].touched &&
+              editUserForm.controls['name'].invalid
+                ? 'red'
+                : 'grey'
+          }"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            editUserForm.controls['name'].touched &&
+            editUserForm.controls['name'].invalid
+          "
+        >
+          <small *ngIf="editUserForm.controls['name']?.errors?.['required']"
+            >Name is a required field!</small
+          >
+          <small *ngIf="editUserForm.controls['name']?.errors?.['minlength']"
+            >Length Should Be More Than 3 Char!!!
+          </small>
+          <small *ngIf="editUserForm.controls['name']?.errors?.['maxlength']"
+            >Length Should Be Less Than 10 Char!!!
+          </small>
+        </div>
+      </div>
+      <!-- IMAGE -->
+      <div class="mb-1" [ngClass]="openTabs == 'image' ? 'd-black' : 'd-none'">
+        <label for="name" class="form-label">Picture</label>
+        <input
+          type="file"
+          class="form-control"
+          id="image"
+          formControlName="image"
+          name="image"
+          aria-describedby="imageHelp"
+          [ngStyle]="{
+            'border-color':
+              editUserForm.controls['image'].touched &&
+              editUserForm.controls['image'].invalid
+                ? 'red'
+                : 'grey'
+          }"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            editUserForm.controls['image'].touched &&
+            editUserForm.controls['image'].invalid
+          "
+        >
+          <small *ngIf="editUserForm.controls['image']?.errors?.['required']"
+            >price is a required field!</small
+          >
+        </div>
+      </div>
+      <!-- Password -->
+      <div
+        class="mb-1"
+        [ngClass]="openTabs == 'password' ? 'd-black' : 'd-none'"
+      >
+        <label for="password" class="form-label">Old Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="oldPassword"
+          name="oldPassword"
+          aria-describedby="oldPasswordHelp"
+        />
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          formControlName="password"
+          name="password"
+          aria-describedby="passwordHelp"
+          [ngStyle]="{
+            'border-color':
+              editUserForm.controls['password'].touched &&
+              editUserForm.controls['password'].invalid
+                ? 'red'
+                : 'grey'
+          }"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            editUserForm.controls['password'].touched &&
+            editUserForm.controls['password'].invalid
+          "
+        >
+          <small *ngIf="editUserForm.controls['password']?.errors?.['required']"
+            >Password is a required field!</small
+          >
+
+          <small *ngIf="editUserForm.controls['password']?.errors?.['pattern']"
+            >passworde Not Correct !!!
+          </small>
+        </div>
+      </div>
+      <!-- mobile -->
+      <div class="mb-1" [ngClass]="openTabs == 'mobile' ? 'd-black' : 'd-none'">
+        <label for="mobile" class="form-label">Phone</label>
+        <input
+          type="text"
+          class="form-control"
+          id="mobile"
+          formControlName="mobile"
+          name="mobile"
+          aria-describedby="mobileHelp"
+          [ngStyle]="{
+            'border-color':
+              editUserForm.controls['mobile'].touched &&
+              editUserForm.controls['mobile'].invalid
+                ? 'red'
+                : 'grey'
+          }"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            editUserForm.controls['mobile'].touched &&
+            editUserForm.controls['mobile'].invalid
+          "
+        >
+          <small *ngIf="editUserForm.controls['mobile']?.errors?.['required']"
+            >mobile is a required field!</small
+          >
+
+          <small *ngIf="editUserForm.controls['mobile']?.errors?.['pattern']"
+            >mobilee Not Correct !!!
+          </small>
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        class="btnSubmit"
+        [ngClass]="{ active: editUserForm.valid }"
+        [disabled]="editUserForm.invalid"
+      >
+        Submit
+      </button>
+    </form>
+  </div>

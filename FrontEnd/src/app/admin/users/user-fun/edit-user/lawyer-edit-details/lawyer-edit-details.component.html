@@ -1,0 +1,262 @@
+<div class="adminUserPage">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-12 col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="text-center">Edit lawyer details</h2>
+          </div>
+
+          <div class="card-body">
+            <form
+              (ngSubmit)="submitlawyerForm(lawyerForm)"
+              [formGroup]="lawyerForm"
+            >
+              <!-- name -->
+              <div class="form-group row mb-3">
+                <label for="price" class="col-md-4 col-form-label text-md-end"
+                  >Price</label
+                >
+
+                <div class="col-md-6">
+                  <input
+                    id="price"
+                    type="number"
+                    class="form-control"
+                    name="price"
+                    value=""
+                    [(ngModel)]="lawyerdata.price"
+                    formControlName="price"
+                    autocomplete="price"
+                    autofocus
+                  />
+                  <div
+                    *ngIf="
+                      lawyerForm.get('price')?.errors != null &&
+                      lawyerForm.get('price')?.touched
+                    "
+                    class="text-danger"
+                  >
+                    <div *ngIf="lawyerForm.get('price')?.errors?.['required']">
+                      Price is required.
+                    </div>
+                    <div *ngIf="lawyerForm.get('price')?.errors?.['max']">
+                      Price max is 999.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- span  -->
+              <div class="form-group row mb-3">
+                <label for="span" class="col-md-4 col-form-label text-md-end"
+                  >Span</label
+                >
+
+                <div class="col-md-6">
+                  <input
+                    id="span"
+                    type="number"
+                    class="form-control"
+                    name="span"
+                    value=""
+                    [(ngModel)]="lawyerdata.span"
+                    formControlName="span"
+                    autocomplete="span"
+                    autofocus
+                  />
+                  <div
+                    *ngIf="
+                      lawyerForm.get('span')?.errors != null &&
+                      lawyerForm.get('span')?.touched
+                    "
+                    class="text-danger"
+                  >
+                    <div *ngIf="lawyerForm.get('span')?.errors?.['required']">
+                      Span is required.
+                    </div>
+                    <div *ngIf="lawyerForm.get('span')?.errors?.['max']">
+                      Max span is 9.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- specialization -->
+              <div class="form-group row mb-3">
+                <label
+                  for="specialization"
+                  class="col-md-4 col-form-label text-md-end"
+                  >specialization</label
+                >
+                <div class="col-md-6">
+                  <select
+                    class="form-control"
+                    id="specialization"
+                    name="specialization"
+                    [(ngModel)]="lawyerdata.specialization"
+                    formControlName="specialization"
+                  >
+                    <option value="">Select specialization</option>
+                    <option
+                      *ngFor="let spec of specData; let i = index"
+                      value="{{ spec.id }}"
+                    >
+                      {{ spec.name }}
+                    </option>
+                  </select>
+                  <div
+                    *ngIf="
+                      lawyerForm.get('specialization')?.errors != null &&
+                      lawyerForm.get('specialization')?.touched
+                    "
+                    class="text-danger col-md-6 col-form-label"
+                  >
+                    <div
+                      *ngIf="lawyerForm.get('specialization')?.errors?.['required']"
+                    >
+                      specialization is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- verifiy -->
+              <div class="form-group row mb-3">
+                <label
+                  for="verified"
+                  class="col-md-4 col-form-label text-md-end"
+                  >verified</label
+                >
+                <div class="col-md-6">
+                  <select
+                    class="form-control"
+                    id="verified"
+                    name="verified"
+                    [(ngModel)]="lawyerdata.verified"
+                    formControlName="verified"
+                  >
+                    <option value="0">NO</option>
+                    <option value="1">YES</option>
+                  </select>
+                  <div
+                    *ngIf="
+                      lawyerForm.get('verified')?.errors != null &&
+                      lawyerForm.get('verified')?.touched
+                    "
+                    class="text-danger col-md-6 col-form-label"
+                  >
+                    <div
+                      *ngIf="lawyerForm.get('verified')?.errors?.['required']"
+                    >
+                      choose please .
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- city -->
+              <div class="form-group row mb-3">
+                <label for="city" class="col-md-4 col-form-label text-md-end"
+                  >Location</label
+                >
+
+                <div class="col-md-6">
+                  <input
+                    id="city"
+                    type="text"
+                    class="form-control"
+                    name="city"
+                    value=""
+                    [(ngModel)]="lawyerdata.location"
+                    formControlName="city"
+                  />
+                  <div
+                    *ngIf="
+                      lawyerForm.get('city')?.errors != null &&
+                      lawyerForm.get('city')?.touched
+                    "
+                    class="text-danger"
+                  >
+                    <div>Location is required.</div>
+                  </div>
+                </div>
+              </div>
+              <!-- image  -->
+              <div class="form-group row mb-3">
+                <label class="col-md-4 col-form-label text-md-end" for="image"
+                  >Image:</label
+                >
+                <div class="col-md-6">
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="image"
+                    name="image"
+                    (change)="onFileChange($event)"
+                    formControlName="image"
+                  />
+
+                  <div
+                    *ngIf="
+                      lawyerForm.get('image')?.errors != null &&
+                      lawyerForm.get('image')?.touched
+                    "
+                    class="text-danger"
+                  >
+                    <div *ngIf="lawyerForm.get('image')?.errors?.['required']">
+                      Image is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- phone  -->
+              <div class="row mb-3">
+                <label for="about" class="col-md-4 col-form-label text-md-end"
+                  >about</label
+                >
+
+                <div class="col-md-6">
+                  <textarea
+                    id="about"
+                    class="form-control"
+                    name="about"
+                    value=""
+                    [(ngModel)]="lawyerdata.about"
+                    formControlName="about"
+                    autocomplete="about"
+                  >
+                  </textarea>
+                  <div
+                    *ngIf="error.about"
+                    class="text-danger col-md-6 col-form-label"
+                  >
+                    <div>
+                      {{ error.about }}
+                    </div>
+                  </div>
+                  <div
+                    *ngIf="
+                      lawyerForm.get('about')?.errors != null &&
+                      lawyerForm.get('about')?.touched
+                    "
+                    class="text-danger"
+                  >
+                    <div *ngIf="lawyerForm.get('about')?.errors?.['required']">
+                      about is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-0">
+                <div class="col-md-6 offset-md-4">
+                  <button type="submit" class="btn btn-primary">
+                    Add User
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

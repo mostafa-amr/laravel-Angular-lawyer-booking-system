@@ -1,0 +1,74 @@
+<div class="landingSerach">
+  <div class="imag">
+ 
+  </div>
+  <div class="overLayer">
+    <div class="lantText">
+      <h1>Better Lawers for a Better Life</h1>
+      <h4>Book online or call 16676</h4>
+    </div>
+
+    <div class="d-flex justify-content-center mt-5">
+      <div class="search mt-5">
+        <h1 class="he text-center">Book Lawer</h1>
+        <div class="search d-flex justify-content-center">
+          <!-- <form action=""> -->
+
+          <div class="select select1">
+            <select
+              id="doc"
+              name="doctor"
+              class="form-select"
+              (change)="getCity($event)"
+            >
+              <option value="all">City</option>
+              <ng-container *ngFor="let city of cities">
+                <option [value]="city.name" id="city.id">
+                  {{ city.name }}
+                </option>
+              </ng-container>
+        
+            </select>
+          </div>
+
+          <div class="select select2">
+            <select
+              id="doc"
+              name="doctor"
+              class="form-select"
+              (change)="getSpecialize($event)"
+            >
+              <option value="all">Specialize</option>
+              <ng-container *ngFor="let spec of specializations; index as i">
+                <option [value]="spec.name" [id]="spec.id">
+                  {{ spec.name }}
+                </option>
+              </ng-container>
+         
+            </select>
+          </div>
+          <div class="select select3">
+
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            [(ngModel)]="lawerName"          
+            name="name"
+            placeholder="Search by Name"
+            defaultValue="all"
+          />
+          </div>
+      
+          <button
+            class="btn serchBtn"
+            (click)="searchFun()"
+            >
+            Search
+          </button>
+       
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

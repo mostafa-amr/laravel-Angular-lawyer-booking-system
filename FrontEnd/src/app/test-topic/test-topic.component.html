@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 mb-3" *ngFor="let lawer of lawers">
+      <div class="image">
+        <img [src]="lawer.images[0]" alt="" />
+      </div>
+      <h5>
+        Title <span> {{ lawer.title }}</span>
+      </h5>
+      <h6>
+        price <span> {{ lawer.price }}</span>
+      </h6>
+      <p>
+        description <span> {{ lawer.description }}</span>
+      </p>
+      <div class="star my-2">
+        <i class="fa-solid fa-star me-1" *ngFor="let n of numSequence(lawer.star)" ></i>
+        <!-- <i class="fa-solid fa-star me-1" ></i>
+        <i class="fa-solid fa-star me-1" ></i> -->
+      </div>
+      <!-- {{lawers}} -->
+      <div class="bt" >
+        <button class="btn btn-danger" [routerLink]="['/topic',lawer.id ]">show </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container">
+  <h1>test-topic works!</h1>
+
+  <ng-container *ngIf="commentBool">
+    <div class="come">
+      <textarea name="textA" id="are" cols="30" rows="10"></textarea>
+    </div>
+  </ng-container>
+
+  <div class="bt">
+    <button
+      class="btn btn-danger p-5 fw-bolder w-75"
+      [style]="styleBind ? 'font-size:20px' : 'font-size:50px'"
+      (click)="showComment()"
+    >
+      Click
+    </button>
+  </div>
+  <div class="bt">
+    <button
+      class="btn btn-danger p-5 fw-bolder w-75 mt-2"
+      [style.fontSize]="styleBind ? '20px' : '50px'"
+      (click)="showComment()"
+    >
+      Second
+    </button>
+  </div>
+</div>
+<div class="in m-auto text-center mt-5">
+  <h1 class="text-center">NgModels</h1>
+  <label for="name">Name</label>
+  <input type="text" name="name" id="name" [(ngModel)]="ngX" />
+</div>
+
+<div class="mt-5">
+  <h3>The Value Of X iS   <span class="text-danger"> {{ ngX }}</span></h3>
+
+</div> -->

@@ -1,0 +1,221 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-lg-7">
+      <div class="left">
+        <div class="singleImagDetail">
+          <div class="image">
+            <img [src]="uploadeImage + lawer?.user?.image" alt="" />
+          </div>
+          <div class="content">
+            <h5 class="name">
+              {{ lawer?.user?.name }}
+            </h5>
+            <p class="title">
+              Mobile :
+              {{ lawer?.user?.phone }}
+            </p>
+
+            <p class="des mt-3">Email {{ lawer?.user?.email }}</p>
+
+            <button class="btn freeconsult" (click)="addToFollowers(lawer?.id)">Follow</button>
+
+            <!-- <p class="des mt-3">Email {{ lawer.user.image }}</p> -->
+            <!-- <div class="iconrate">
+              <i
+                class="fa-solid fa-star"
+                *ngFor="let star of numSequence(lawer.rate)"
+              >
+              </i>
+            </div> -->
+            <!-- <p class="rate">Overall Rating From {{ lawer.visitor }} Visitors</p>
+
+            <div class="category">
+              <i class="fa-solid fa-scale-balanced"></i> {{ lawer.spicialize }}
+            </div>
+            <div class="feess">
+              <i class="fa-solid fa-money-bill-wave"></i> Fees :
+              {{ lawer.visita }} EGP
+            </div>
+            <div class="waitTime">
+              <i class="fa-regular fa-clock"></i> Waiting Time :
+              {{ lawer.waiteTime }} Minutes
+            </div>
+            <div class="cont">
+              <i class="fa-solid fa-phone"></i> {{ lawer.phone }} - Cost of
+              regular call
+            </div> -->
+          </div>
+        </div>
+        <div class="about d-flex align-items-start mt-3">
+          <div class="ico me-3">
+            <i class="fa-solid fa-info"></i>
+          </div>
+          <div class="text">
+            <h4>About The Lawer</h4>
+            <p>
+              <!-- {{ lawer.about }} -->
+            </p>
+          </div>
+        </div>
+
+   
+
+        <div class="doctorReview mt-3">
+          <div class="d-flex align-items-start">
+            <div class="ico me-3">
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="text">
+              <h4>User Reviews</h4>
+            </div>
+          </div>
+
+          <!-- <div class="overalaReviw text-center">
+            <div
+              class="iconrate d-flex justify-content-center align-items-center"
+            >
+              <i
+                class="fa-solid fa-star"
+                *ngFor="let star of numSequence(lawer.rate)"
+              >
+              </i>
+            </div>
+            <h4 class="">Overall Rating</h4>
+            <p>From 1095 Visitors</p>
+          </div> -->
+          <div class="userReviws" *ngFor="let review of Reviws">
+            <div class="le">
+              <div class="iconrate d-flex align-items-center">
+                <i
+                  class="fa-solid fa-star"
+                  *ngFor="let star of numSequence(review.rate)"
+                >
+                </i>
+              </div>
+              <h5 class="">Rating</h5>
+              <p class="mb-0">" {{ review.comment }} "</p>
+              <!-- <p>{{ review.name }}</p> -->
+
+              <p>{{ review.created_at }}</p>
+            </div>
+            <div class="rateNum">
+              <p>{{ review.rate }}</p>
+            </div>
+          </div>
+
+          <!-- <div class="userReviws">
+            <div class="le">
+              <div class="iconrate d-flex align-items-center">
+                <i
+                  class="fa-solid fa-star"
+                  *ngFor="let star of numSequence(lawer.rate)"
+                >
+                </i>
+              </div>
+              <h5 class="">Overall Rating</h5>
+              <p>Alaa ElNaggar</p>
+              <p>22-2-2020</p>
+            </div>
+            <div class="rateNum">
+              <p>{{ lawer.rate }}</p>
+            </div>
+          </div>
+          <div class="userReviws">
+            <div class="le">
+              <div class="iconrate d-flex align-items-center">
+                <i
+                  class="fa-solid fa-star"
+                  *ngFor="let star of numSequence(lawer.rate)"
+                >
+                </i>
+              </div>
+              <h5 class="">Overall Rating</h5>
+              <p>Alaa ElNaggar</p>
+              <p>22-2-2020</p>
+            </div>
+            <div class="rateNum">
+              <p>{{ lawer.rate }}</p>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-5 mt-4 mt-lg-0">
+      <div class="contSticky">
+        <div class="header text-center">
+          <h6>Booking Information</h6>
+        </div>
+        <div class="rightDetails">
+          <div class="tit pt-3 text-center px-2">
+            <h6>Book</h6>
+            <h6>Examination</h6>
+          </div>
+
+          <div
+            class="detaIcon d-flex align-iteems-center justify-content-center py-3 px-2"
+          >
+            <div class="detai text-center">
+              <i class="fa-solid fa-money-bill-wave"></i>
+              <p>
+                Fees <span>{{ lawer.price }} EGP</span>
+              </p>
+            </div>
+            <!-- <div class="detai text-center">
+              <i class="fa-solid fa-dollar-sign"></i>
+              <p>You’ll <span> earn300 points</span></p>
+            </div> -->
+            <div class="detai text-center">
+              <i class="fa-regular fa-clock"></i>
+              <p>session Time : {{ lawer.span }}</p>
+            </div>
+          </div>
+
+          <div class="loca d-flex align-items-start py-3 px-2">
+            <i class="fa-solid fa-location-dot me-3"></i>
+            <div class="tex">
+              <h6 class="mb-0">{{ lawer.address }}</h6>
+              <p class="mb-0">
+                Book now to receive the office address details and phone number
+              </p>
+            </div>
+          </div>
+          <div class="dates text-center py-3 px-2">
+            <h5>Choose your appointment</h5>
+            <div class="singleRight py-2">
+              <swiper-container navigation="true">
+                <swiper-slide *ngFor="let date of lawer.lawyer_times"
+                  ><div class="slide text-center">
+                    <h6 class="bg-secondary text-white">{{ date.day }}</h6>
+                    <div class="date">
+                      <p>
+                        From <span class="">{{ date.start_hour }}</span>
+                      </p>
+                      <p>
+                        To <span class="">{{ date.end_hour }}</span>
+                      </p>
+                    </div>
+                    <a
+                      [routerLink]="[
+                        '/oneLawerReservation',
+                        lawer.id,
+                        date.id,
+                        date.day,
+                        date.start_hour,
+                        date.end_hour
+                      ]"
+                    >
+                      <h6 class="bg-secondary text-white">Book</h6></a
+                    >
+                  </div></swiper-slide
+                >
+              </swiper-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

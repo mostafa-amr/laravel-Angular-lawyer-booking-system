@@ -1,0 +1,231 @@
+.landingSerach {
+  position: relative;
+}
+.serchBtn {
+  background-color: #e49c0bce;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+}
+.imag {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-image: url("../../assets/landing/landing1.jpg");
+
+  background-position: center;
+  background-size: cover;
+  animation: backImageAnimation 40s;
+  animation-delay: 5s;
+  animation-iteration-count: infinite;
+  /* animation-timing-function: ; */
+  /* animation-fill-mode: ; */
+  animation-timing-function: linear;
+  /* -webkit-animation-timing-function: easn-out; */
+}
+.imag img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.im1 {
+  opacity: 1;
+  visibility: visible;
+  animation-name: backAnimation;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  /* 
+    opacity: 0;
+    visibility: hidden; */
+  z-index: 100;
+}
+
+.im2 {
+  opacity: 0;
+  visibility: hidden;
+  animation-name: backAnimation;
+  animation-duration: 40s;
+  animation-delay: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  z-index: 90;
+}
+
+.im3 {
+  opacity: 0;
+  visibility: hidden;
+  animation-name: backAnimation;
+  animation-duration: 40s;
+  animation-delay: 20s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  z-index: 80;
+}
+
+@keyframes backImageAnimation {
+  0% {
+    background-image: url("../../assets/landing/landing2.jpg");
+  }
+  50% {
+    background-image: url("../../assets/landing/landing5.jpg");
+  }
+  100% {
+    background-image: url("../../assets/landing/landing4.jpg");
+  }
+ 
+}
+@keyframes backAnimation {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  20% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  40% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  /* 100% {
+    opacity: 0.5;
+    visibility: visible;
+  } */
+}
+
+.overLayer {
+  position: absolute;
+  padding: 30px 30px;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(21, 111, 190, 0.24);
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.6564829571646933) 49%,
+    rgba(251, 251, 251, 0.7962345099597243) 69%,
+    rgba(255, 255, 255, 0.7310171186553766) 85%
+  );
+
+  background-image: linear-gradient(
+    to right bottom,
+    #ffffffa8,
+    #ffffffaf,
+    #ffffff1e,
+    #ffffff00,
+    #ffffff00
+  );
+}
+
+/* @media (max-width: 600px) {
+  .overLayer h1 {
+    position: absolute;
+    padding: 30px 30px;
+  }
+} */
+
+.search {
+  border-radius: 10px;
+  /* overflow: hidden; */
+  background-color: chocolate;
+  width: fit-content;
+  /* margin: auto; */
+  padding: 30px;
+  border-radius: 10px;
+  background-color: whitesmoke;
+}
+.search button {
+  padding: 30px 50px;
+
+  /* margin: auto; */
+  border-radius: 0;
+  cursor: pointer;
+}
+select {
+  padding: 30px 50px;
+  /* margin: 0 20px; */
+  background-color: white;
+  color: black;
+  border: 1px solid rgba(184, 184, 184, 0.842);
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: rgb(247, 151, 26);
+  border-radius: 0;
+}
+
+select:focus {
+  box-shadow: none;
+}
+
+.select3 input {
+  height: 100%;
+  border-radius: 0;
+  border: 1px solid rgba(184, 184, 184, 0.842);
+
+}
+
+.select3 input {
+  font-weight: bold;
+}
+.select3 input:focus {
+  box-shadow: none;
+}
+.select3 input::placeholder {
+  color: rgb(247, 151, 26);
+  font-weight: bold;
+}
+
+@media (max-width: 940px) {
+  .search h1 {
+    /* font-size: 1.5rem; */
+    /* background-color: brown; */
+  }
+  .search {
+    /* background-color: aqua; */
+    padding: 15px;
+  }
+
+  select {
+    padding: 15px 25px;
+    /* margin: 0 20px; */
+    background-color: white;
+    color: black;
+    border: 1px solid rgba(184, 184, 184, 0.842);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: rgb(247, 151, 26);
+    border-radius: 0;
+  }
+
+  .search button {
+    padding: 15px 25px;
+  }
+}
+
+@media (max-width: 740px) {
+  .search {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+
+    margin: auto;
+    margin-top: 10px !important;
+  }
+  .search button {
+    /* margin: auto; */
+    font-weight: normal;
+  }
+}

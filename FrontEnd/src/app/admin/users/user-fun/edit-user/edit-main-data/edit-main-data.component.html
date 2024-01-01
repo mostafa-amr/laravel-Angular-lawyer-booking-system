@@ -1,0 +1,221 @@
+<div class="adminUserPage">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-12 col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="text-center">Edit {{ data.name }}</h2>
+          </div>
+
+          <div class="card-body">
+            <form (ngSubmit)="submitForm(userForm)" [formGroup]="userForm">
+              <!-- name -->
+              <div class="form-group row mb-3">
+                <label for="name" class="col-md-4 col-form-label text-md-end"
+                  >Name</label
+                >
+
+                <div class="col-md-6">
+                  <input
+                    id="name"
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    value=""
+                    [(ngModel)]="data.name"
+                    formControlName="name"
+                    autocomplete="name"
+                    autofocus
+                  />
+                </div>
+              </div>
+              <!-- email  -->
+              <div class="row mb-3 form-group">
+                <label for="email" class="col-md-4 col-form-label text-md-end"
+                  >Email Address</label
+                >
+
+                <div class="col-md-6">
+                  <input
+                    id="email"
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    value=""
+                    [(ngModel)]="data.email"
+                    formControlName="email"
+                    autocomplete="email"
+                  />
+                  <div
+                    *ngIf="error.email"
+                    class="text-danger col-md-6 col-form-label"
+                  >
+                    <div>
+                      {{ error.email }}
+                    </div>
+                  </div>
+                  <div
+                    *ngIf="
+                      userForm.get('email')?.errors != null &&
+                      userForm.get('email')?.touched
+                    "
+                    class="text-danger"
+                  >
+                    <div *ngIf="userForm.get('email')?.errors?.['required']">
+                      Email is required.
+                    </div>
+                    <div *ngIf="userForm.get('email')?.errors?.['email']">
+                      Invalid email format.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- role  -->
+              <div class="form-group row mb-3">
+                <label for="role" class="col-md-4 col-form-label text-md-end"
+                  >Role:</label
+                >
+                <div class="col-md-6">
+                  <select
+                    class="form-control"
+                    id="role"
+                    name="role"
+                    [(ngModel)]="data.role"
+                    formControlName="role"
+                  >
+                    <option value="">Select Role</option>
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                    <option value="lawyer">lawyer</option>
+                  </select>
+
+                  <div
+                    *ngIf="
+                      userForm.get('role')?.errors != null &&
+                      userForm.get('role')?.touched
+                    "
+                    class="text-danger col-md-6 col-form-label"
+                  >
+                    <div *ngIf="userForm.get('role')?.errors?.['required']">
+                      Role is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- spec -->
+
+              <!-- city -->
+              <div class="form-group row mb-3">
+                <label for="city" class="col-md-4 col-form-label text-md-end"
+                  >city</label
+                >
+                <div class="col-md-6">
+                  <select
+                    class="form-control"
+                    id="city"
+                    name="city"
+                    [(ngModel)]="data.city_id"
+                    formControlName="city"
+                  >
+                    <option value="">Select city</option>
+                    <option
+                      *ngFor="let cities of cityData; let i = index"
+                      value="{{ cities.id }}"
+                    >
+                      {{ cities.name }}
+                    </option>
+                  </select>
+                  <div
+                    *ngIf="
+                      userForm.get('city')?.errors != null &&
+                      userForm.get('city')?.touched
+                    "
+                    class="text-danger col-md-6 col-form-label"
+                  >
+                    <div *ngIf="userForm.get('city')?.errors?.['required']">
+                      city is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- image  -->
+              <div class="form-group row mb-3">
+                <label class="col-md-4 col-form-label text-md-end" for="image"
+                  >Image:</label
+                >
+                <div class="col-md-6">
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="image"
+                    name="image"
+                    (change)="onFileUserChange($event)"
+                    formControlName="image"
+                  />
+
+                  <div
+                    *ngIf="
+                      userForm.get('image')?.errors != null &&
+                      userForm.get('image')?.touched
+                    "
+                    class="text-danger"
+                  >
+                    <div *ngIf="userForm.get('image')?.errors?.['required']">
+                      Image is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- phone  -->
+              <div class="row mb-3">
+                <label for="phone" class="col-md-4 col-form-label text-md-end"
+                  >phone</label
+                >
+
+                <div class="col-md-6">
+                  <input
+                    id="phone"
+                    type="tel"
+                    class="form-control"
+                    name="phone"
+                    value=""
+                    [(ngModel)]="data.phone"
+                    formControlName="phone"
+                    autocomplete="phone"
+                  />
+                  <div
+                    *ngIf="error.phone"
+                    class="text-danger col-md-6 col-form-label"
+                  >
+                    <div>
+                      {{ error.phone }}
+                    </div>
+                  </div>
+                  <div
+                    *ngIf="
+                      userForm.get('phone')?.errors != null &&
+                      userForm.get('phone')?.touched
+                    "
+                    class="text-danger"
+                  >
+                    <div *ngIf="userForm.get('phone')?.errors?.['pattern']">
+                      phone is invalid.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-0">
+                <div class="col-md-6 offset-md-4">
+                  <button type="submit" class="btn btn-primary">
+                    Edit User
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
